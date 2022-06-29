@@ -268,7 +268,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="../../folder/usuarios.php>
+							<a href="../../folder/usuarios.php">
 								<i class="fas fa-user"></i>
 								<p>Usuarios</p>
 							</a>
