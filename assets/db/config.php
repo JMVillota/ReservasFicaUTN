@@ -2,10 +2,10 @@
 session_start();
 
 // Define database
-define('dbhost', 'localhost');
-define('dbuser', 'root');
-define('dbpass', '');
-define('dbname', 'proyecto_final');
+define('dbhost', 'bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com');
+define('dbuser', 'uobaba3u7tzwepfv');
+define('dbpass', 'VnpoDdEI73A3gZL3GaUd');
+define('dbname', 'bmfmhv5m3p9lyxmjs6du');
 
 // Connecting database
 try {

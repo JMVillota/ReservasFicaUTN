@@ -3,10 +3,10 @@
 //Incluimos el fichero de conexion
 Class dbConexion{
 /* Variables de conexion */
-var $dbhost = "localhost";
-var $username = "root";
-var $password = "";
-var $dbname = "proyecto_final";
+var $dbhost = "bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com";
+var $username = "uobaba3u7tzwepfv";
+var $password = "VnpoDdEI73A3gZL3GaUd";
+var $dbname = "bmfmhv5m3p9lyxmjs6du";
 var $conn;
 //Funcion de conexion MySQL
 function getConexion() {

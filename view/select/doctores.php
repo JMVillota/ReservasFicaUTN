@@ -1,6 +1,6 @@
 <?php
 
-$conexion = mysqli_connect("localhost","root","","proyecto_final");
+$conexion = mysqli_connect("bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com","uobaba3u7tzwepfv","VnpoDdEI73A3gZL3GaUd","bmfmhv5m3p9lyxmjs6du");
 
 $query = $conexion->query("SELECT * FROM doctor");
 

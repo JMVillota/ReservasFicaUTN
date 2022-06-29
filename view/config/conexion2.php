@@ -1,10 +1,10 @@
 <?php
 function conectar(){
 $conexion=null;
-$host='127.0.0.1';
-$db='proyecto_final';
-$user = "root";
-$pass= "";
+$host='bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com';
+$db='bmfmhv5m3p9lyxmjs6du';
+$user = "uobaba3u7tzwepfv";
+$pass= "VnpoDdEI73A3gZL3GaUd";
 try {
   $conexion= new PDO('mysql:host='.$host.';dbname='.$db, $user,$pass);
 

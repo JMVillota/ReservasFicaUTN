@@ -34,10 +34,10 @@
 
 
 									<?php 
-                                                            $dbhost = 'localhost';
-                                                            $dbname = 'proyecto_final';  
-                                                            $dbuser = 'root';                  
-                                                            $dbpass = '';                  
+                                                            $dbhost = 'bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com';
+                                                            $dbname = 'bmfmhv5m3p9lyxmjs6du';  
+                                                            $dbuser = 'uobaba3u7tzwepfv';                  
+                                                            $dbpass = 'VnpoDdEI73A3gZL3GaUd';                  
                                                             
                                                             try{
                                                             

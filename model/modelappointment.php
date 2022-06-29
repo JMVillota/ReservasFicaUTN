@@ -16,7 +16,7 @@ class Modelo{
 
   public function __construct(){
       $this->appointment=array();
-      $this->db=new PDO('mysql:host=localhost;dbname=proyecto_final',"root","");
+      $this->db=new PDO('mysql:host=bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com;dbname=bmfmhv5m3p9lyxmjs6du',"uobaba3u7tzwepfv","VnpoDdEI73A3gZL3GaUd");
   }
   public function mostrar($tabla,$condicion){
       $consulta="SELECT appointment.codcit, appointment.dates, appointment.hour,customers.nombrep,doctor.nomdoc, specialty.nombrees, appointment.estado, appointment.fecha_create FROM appointment INNER JOIN customers ON appointment.codpaci = customers.codpaci INNER JOIN doctor ON appointment.coddoc = doctor.coddoc INNER JOIN specialty ON appointment.codespe = specialty.codespe";

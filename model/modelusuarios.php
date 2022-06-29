@@ -9,7 +9,7 @@ class Modelo{
 
   public function __construct(){
       $this->usuarios=array();
-      $this->db=new PDO('mysql:host=localhost;dbname=proyecto_final',"root","");
+      $this->db=new PDO('mysql:host=bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com;dbname=bmfmhv5m3p9lyxmjs6du',"uobaba3u7tzwepfv","VnpoDdEI73A3gZL3GaUd");
   }
   public function mostrar($tabla,$condicion){
       $consulta="SELECT * FROM usuarios";

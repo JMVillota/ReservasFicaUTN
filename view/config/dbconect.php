@@ -2,9 +2,9 @@
 
 Class Connection{
  
-	private $server = "mysql:host=localhost;dbname=proyecto_final";
-	private $username = "root";
-	private $password = "";
+	private $server = "mysql:host=bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com;dbname=bmfmhv5m3p9lyxmjs6du";
+	private $username = "uobaba3u7tzwepfv";
+	private $password = "VnpoDdEI73A3gZL3GaUd";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	
