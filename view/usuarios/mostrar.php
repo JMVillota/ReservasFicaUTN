@@ -244,133 +244,36 @@
 						</div>
 					</div>
 					<ul class="nav nav-primary">
-						<li class="nav-item">
-						
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+						<li class="nav-item active">
+							<a href="#dashboard" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Home</p>
-								<span class="caret"></span>
 							</a>
-							
-						</li>
-						<li class="nav-section">
-							<span class="sidebar-mini-icon">
-								<i class="fa fa-ellipsis-h"></i>
-							</span>
-							
-						</li>
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#base">
+							<a href="../../folder/appointment.php">
 								<i class="fas fa-layer-group"></i>
 								<p>Citas</p>
-								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="base">
-								<ul class="nav nav-collapse">
-									
-									
-									<li>
-										<a href="../folder/appointment.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-									
-									
-									
-								</ul>
-							</div>
 						</li>
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#sidebarLayouts">
+							<a href="../../folder/customers.php">
 								<i class="fas fa-male"></i>
-								<p>Pacientes</p>
-								<span class="caret"></span>
+								<p>Secretarias</p>
 							</a>
-							<div class="collapse" id="sidebarLayouts" >
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="../folder/customers.php" >
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-									
-									
-								
-								</ul>
-							</div>
 						</li>
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#forms">
-								<i class="fas fa-user-md"></i>
-								<p>Médicos</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="forms">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="../folder/doctor.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a data-toggle="collapse" href="#tables">
+							<a href="../../folder/specialty.php">
 								<i class="fas fa-table"></i>
-								<p>Áreas médicas</p>
-								<span class="caret"></span>
+								<p>Carreras</p>
 							</a>
-							<div class="collapse" id="tables">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="specialty.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-									
-								</ul>
-							</div>
 						</li>
-
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#calendar">
-								<i class="fas fa-calendar-alt"></i>
-								<p>Horarios</p>
-								<span class="caret"></span>
-							</a>
-							<div class="collapse" id="calendar">
-								<ul class="nav nav-collapse">
-									<li>
-										<a href="horario.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-									
-								</ul>
-							</div>
-						</li>
-
-
-						<li class="nav-item active">
-							<a data-toggle="collapse" href="#user">
+							<a href="../../folder/usuarios.php>
 								<i class="fas fa-user"></i>
 								<p>Usuarios</p>
-								<span class="caret"></span>
 							</a>
-							<div class="collapse" id="user">
-								<ul class="nav nav-collapse">
-									<li class="active">
-										<a href="usuarios.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-									
-								</ul>
-							</div>
 						</li>
-						
-						
+
 					</ul>
 				</div>
 			</div>
