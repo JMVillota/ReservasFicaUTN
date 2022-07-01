@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
   <link rel="stylesheet" type="text/css " href="assets/css/style.css">
   <link rel="stylesheet" type="text/css " href="assets/css/css/all.min.css">
   <link rel="stylesheet" href="assets/css/sweetalert.css">
-  <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
+  <link rel="icon" href="wp-content/themes/utndigital/assets/img/UTN.png" type="image/x-icon" />
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 
@@ -77,11 +77,7 @@ if (isset($_POST['login'])) {
   <!--  <img class="wave"src="../assets/img/wave.png" alt="">  -->
   <div class="contenedor">
     <div class="img">
-    <div class="image desktop-image" data-scroll>
-                            <img src="wp-content/uploads/2022/05/220324_cube_1_Semi_Transparent.png" alt="">
-                            <div class="home-bg" data-scroll data-scroll-speed="5" style="background: url(wp-content/themes/utndigital/assets/img/Flower_Kam2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;">
-                            </div>
-                        </div>
+      <img src="https://pngimage.net/wp-content/uploads/2018/05/calendrier-icone-png-4.png" alt="">
     </div>
     <div class="contenido-login">
 
