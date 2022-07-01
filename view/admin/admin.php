@@ -12,9 +12,9 @@ if (!isset($_SESSION['cargo']) == 1) {
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>CITAS MEDICAS PANEL ADMINISTRATIVO</title>
+	<title>Panel Administrativo</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../../assets/img/logo.png" type="image/x-icon" />
+	<link rel="icon" href="/wp-content/themes/utndigital/assets/img/UTN.png" type="image/x-icon" />
 
 	<!-- Fonts and icons -->
 	<script src="../../assets/js/plugin/webfont/webfont.min.js"></script>
@@ -297,7 +297,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 						<div class="col-md-4">
 							<div class="card">
 								<div class="card-body">
-									<div class="card-title fw-mediumbold">Nuevos pacientes</div>
+									<div class="card-title fw-mediumbold">Administradores</div>
 									<?php
 									function connect()
 									{
