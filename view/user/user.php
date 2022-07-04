@@ -3,7 +3,7 @@
   session_start();
 
   // Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
-  if(!isset($_SESSION['cargo']) || $_SESSION['cargo'] != 2){
+  if(!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2){
     /*
       Para redireccionar en php se utiliza header,
       pero al ser datos enviados por cabereza debe ejecutarse

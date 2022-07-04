@@ -15,11 +15,12 @@ if (isset($_POST['login'])) {
 
   if ($errMsg == '') {
     try {
-      $stmt = $connect->prepare('SELECT id, nombre, usuario, email,clave, cargo FROM usuarios WHERE usuario = :usuario UNION SELECT codpaci, nombrep,apellidop, usuario, clave, cargo FROM customers WHERE usuario = :usuario');
+      $stmt = $connect->prepare('SELECT Id, Nombre, Apellido, Usuario, Correo, Clave, Cargo_Id FROM usuarios WHERE Usuario = :Usuario');
+      //$stmt = $connect->prepare('SELECT Id, Nombre, Apellido, Correo, Usuario, Clave, Tipo_Usuario_Id FROM User WHERE Usuario = :Usuario');
 
 
       $stmt->execute(array(
-        ':usuario' => $usuario
+        ':Usuario' => $usuario
 
 
       ));
@@ -28,21 +29,36 @@ if (isset($_POST['login'])) {
       if ($data == false) {
         $errMsg = "Usuario $usuario no encontrado.";
       } else {
-        if ($clave == $data['clave']) {
+        if ($clave == $data['Clave']) {
 
-          $_SESSION['id'] = $data['id'];
-          $_SESSION['nombre'] = $data['nombre'];
-          $_SESSION['usuario'] = $data['usuario'];
-          $_SESSION['email'] = $data['email'];
-          $_SESSION['clave'] = $data['clave'];
-          $_SESSION['cargo'] = $data['cargo'];
+          $_SESSION['Id'] = $data['Id'];
+          $_SESSION['Nombre'] = $data['Nombre'];
+          $_SESSION['Apellido'] = $data['Apellido'];
+          $_SESSION['Usuario'] = $data['Usuario'];
+          $_SESSION['Correo'] = $data['Correo'];
+          $_SESSION['Clave'] = $data['Clave'];
+          $_SESSION['Cargo_Id'] = $data['Cargo_Id'];
+
+          // $_SESSION['Id'] = $data['Id'];
+          // $_SESSION['Nombre'] = $data['Nombre'];
+          // $_SESSION['Apellido'] = $data['Apellido'];
+          // $_SESSION['Correo'] = $data['Correo'];
+          // $_SESSION['Usuario'] = $data['Usuario'];
+          // $_SESSION['Clave'] = $data['Clave'];
+          // $_SESSION['Tipo_Usuario_Id'] = $data['Tipo_Usuario_Id'];
 
 
-          if ($_SESSION['cargo'] == 1) {
-            header('Location: view/admin/admin.php');
-          } else if ($_SESSION['cargo'] == 2) {
-            header('Location: view/user/user.php');
-          }
+           if ($_SESSION['Cargo_Id'] == 1) {
+             header('Location: view/admin/admin.php');
+           } else if ($_SESSION['Cargo_Id'] == 2) {
+             header('Location: view/user/user.php');
+           }
+
+          // if ($_SESSION['Tipo_Usuario_Id'] == 1) {
+          //   header('Location: view/admin/admin.php');
+          // } else if ($_SESSION['Tipo_Usuario_Id'] == 2) {
+          //   header('Location: view/user/user.php');
+          // }
 
 
           exit;

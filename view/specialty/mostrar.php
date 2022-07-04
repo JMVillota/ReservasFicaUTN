@@ -3,7 +3,7 @@
   session_start();
 
   // Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
-  if(!isset($_SESSION['cargo']) || $_SESSION['cargo'] != 1){
+  if(!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1){
     /*
       Para redireccionar en php se utiliza header,
       pero al ser datos enviados por cabereza debe ejecutarse
@@ -15,7 +15,7 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -179,16 +179,16 @@
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+									<img src="../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="../assets/img/mujer.png" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../assets/img/Avatar.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo ucfirst($_SESSION['nombre']); ?></h4>
+												<h4><?php echo ucfirst($_SESSION['Nombre']); ?></h4>
 												<p class="text-muted">Administrador</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
@@ -215,12 +215,12 @@
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+							<img src="../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo ucfirst($_SESSION['nombre']); ?>
+									<?php echo ucfirst($_SESSION['Nombre']); ?>
 									<span class="user-level">Administrador</span>
 									<span class="caret"></span>
 								</span>
@@ -289,7 +289,7 @@
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Áreas Médicas</h4>
+						<h4 class="page-title">Carreras de la Facultad</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="../view/admin/admin.php">
@@ -335,17 +335,15 @@
 											<thead>
 												<tr>
 													<th>#</th>
-													<th>Nombre</th>
-													<th>Fecha</th>
+													<th>Carrera</th>
 													<th style="width: 10%">Action</th>
 												</tr>
 											</thead>
 											<tfoot>
 												<tr>
 													<th>#</th>
-													<th>Nombre</th>
-													<th>Fecha</th>
-													<th>Action</th>
+													<th>Carrera</th>
+													<th>Opciones</th>
 												</tr>
 											</tfoot>
 											
@@ -358,25 +356,24 @@
 												$database = new Connection();
 												$db = $database->open();
 												try{	
-													$sql = 'SELECT specialty.codespe,specialty.nombrees,specialty.fecha_create  FROM specialty';
+													$sql = 'SELECT * FROM departamentos';
 													foreach ($db->query($sql) as $row) {
 														?>
 														<tr>
-															<td><?php echo $row['codespe']; ?></td>
-															<td><?php echo $row['nombrees']; ?></td>
-															<td><?php echo $row['fecha_create']; ?></td>
+															<td><?php echo $row['departamentos_id']; ?></td>
+															<td><?php echo $row['nombre_departamento']; ?></td>
 															
 															<td>
 																<div class="form-button-action">
 												
 												
-												<button href="#editRowModal=<?php echo $row['codespe'];?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal"  title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $row['codespe']; ?>">
+												<button href="#editRowModal=<?php echo $row['departamentos_id'];?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal"  title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $row['departamentos_id']; ?>">
 														<i class="fa fa-edit"></i>
 														
 															</button>
 															
 															
-															<button href="#deleteRowModal=<?php echo $row['codespe'];?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal"  title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $row['codespe']; ?>">
+															<button href="#deleteRowModal=<?php echo $row['departamentos_id'];?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal"  title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $row['departamentos_id']; ?>">
 														<i class="fa fa-times"></i>
 														
 															</button>

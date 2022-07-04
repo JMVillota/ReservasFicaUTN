@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['cargo']) == 1) {
+if (!isset($_SESSION['Cargo_Id']) == 1) {
 	header('location: ../../login.php');
 }
 ?>
@@ -128,7 +128,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="../../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+									<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -136,19 +136,19 @@ if (!isset($_SESSION['cargo']) == 1) {
 									<li>
 										<div class="user-box">
 
-											<div class="avatar-lg"><img src="../../assets/img/mujer.png" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../../assets/img/avatar.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo ucfirst($_SESSION['nombre']); ?></h4>
-												<p class="text-muted">Administrador</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+												<h4><?php echo nl2br(ucfirst($_SESSION['Apellido'])."\r\n".ucfirst($_SESSION['Nombre'])); ?></h4>
+												<p class="text-muted">Administrador</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
 											</div>
 										</div>
 									</li>
 									<li>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">My Profile</a>
+										<a class="dropdown-item" href="#">Perfil</a>
 
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="../../cerrarSesion.php">Logout</a>
+										<a class="dropdown-item" href="../../cerrarSesion.php">Salir</a>
 									</li>
 								</div>
 							</ul>
@@ -165,12 +165,13 @@ if (!isset($_SESSION['cargo']) == 1) {
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="../../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+							<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo ucfirst($_SESSION['nombre']); ?>
+									<?php echo nl2br(ucfirst($_SESSION['Apellido'])."\r\n".ucfirst($_SESSION['Nombre'])); ?>
+									
 									<span class="user-level">Administrador</span>
 									<span class="caret"></span>
 								</span>
@@ -181,17 +182,17 @@ if (!isset($_SESSION['cargo']) == 1) {
 								<ul class="nav">
 									<li>
 										<a href="#profile">
-											<span class="link-collapse">My Profile</span>
+											<span class="link-collapse">Mi Perfil</span>
 										</a>
 									</li>
 									<li>
 										<a href="#edit">
-											<span class="link-collapse">Edit Profile</span>
+											<span class="link-collapse">Editar Perfil</span>
 										</a>
 									</li>
 									<li>
 										<a href="#settings">
-											<span class="link-collapse">Settings</span>
+											<span class="link-collapse">Configuración</span>
 										</a>
 									</li>
 								</ul>
@@ -200,7 +201,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item active">
-							<a href="#dashboard" class="collapsed" aria-expanded="false">
+							<a href="../view/admin/admin.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Home</p>
 							</a>
@@ -241,7 +242,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
 							<div>
-								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
+								<h2 class="text-white pb-2 fw-bold">Tablero</h2>
 
 							</div>
 
@@ -261,7 +262,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 											<h6 class="fw-bold mt-3 mb-0">Administradores</h6>
 											<?php
 											require_once "../config/conexion1.php";
-											$sql = "SELECT COUNT(*) total FROM customers";
+											$sql = "SELECT COUNT(*) total FROM usuarios WHERE Cargo_Id = 1";
 											$result = $bd->query($sql); //$pdo sería el objeto conexión
 											$total = $result->fetchColumn();
 											?>
@@ -271,14 +272,14 @@ if (!isset($_SESSION['cargo']) == 1) {
 											<h6 class="fw-bold mt-3 mb-0">Secretarias</h6>
 											<?php
 											require_once "../config/conexion1.php";
-											$sql = "SELECT COUNT(*) total FROM doctor";
+											$sql = "SELECT COUNT(*) total FROM usuarios WHERE Cargo_Id = 2";
 											$result = $bd->query($sql); //$pdo sería el objeto conexión
 											$total2 = $result->fetchColumn();
 											?>
 										</div>
 										<div class="px-2 pb-2 pb-md-0 text-center">
 											<div id="circles-3"></div>
-											<h6 class="fw-bold mt-3 mb-0">Citas</h6>
+											<h6 class="fw-bold mt-3 mb-0">Reservaciones</h6>
 											<?php
 											require_once "../config/conexion1.php";
 											$sql = "SELECT COUNT(*) total FROM appointment";
@@ -304,7 +305,7 @@ if (!isset($_SESSION['cargo']) == 1) {
 										return new mysqli("bmfmhv5m3p9lyxmjs6du-mysql.services.clever-cloud.com", "uobaba3u7tzwepfv", "VnpoDdEI73A3gZL3GaUd", "bmfmhv5m3p9lyxmjs6du");
 									}
 									$con = connect();
-									$sql = "SELECT * FROM customers   ORDER BY apellidop ASC LIMIT 5";
+									$sql = "SELECT * FROM usuarios WHERE Cargo_Id = 1";
 									$query  = $con->query($sql);
 									$data =  array();
 									if ($query) {
@@ -323,8 +324,8 @@ if (!isset($_SESSION['cargo']) == 1) {
 														<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
 													</div>
 													<div class="info-user ml-3">
-														<div class="username"><?php echo $d->apellidop; ?></div>
-														<div class="status">Secretarias</div>
+														<div class="username"><?php echo $d->Apellido; ?></div>
+														<div class="status">Administrador</div>
 													</div>
 
 												</div>
@@ -342,11 +343,11 @@ if (!isset($_SESSION['cargo']) == 1) {
 						<div class="col-md-4">
 							<div class="card">
 								<div class="card-body">
-									<div class="card-title fw-mediumbold">Nuevos doctores</div>
+									<div class="card-title fw-mediumbold">Secretarias</div>
 									<?php
 
 									$con = connect();
-									$sql = "SELECT * FROM doctor   ORDER BY apedoc ASC LIMIT 5";
+									$sql = "SELECT * FROM usuarios WHERE Cargo_Id = 2";
 									$query  = $con->query($sql);
 									$data =  array();
 									if ($query) {
@@ -365,8 +366,8 @@ if (!isset($_SESSION['cargo']) == 1) {
 														<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
 													</div>
 													<div class="info-user ml-3">
-														<div class="username"><?php echo $d->apedoc; ?></div>
-														<div class="status">Doctores</div>
+														<div class="username"><?php echo $d->Apellido; ?></div>
+														<div class="status">Secretaria</div>
 													</div>
 
 												</div>
@@ -384,11 +385,11 @@ if (!isset($_SESSION['cargo']) == 1) {
 						<div class="col-md-4">
 							<div class="card">
 								<div class="card-body">
-									<div class="card-title fw-mediumbold">Nuevos especialidades</div>
+									<div class="card-title fw-mediumbold">Carreras</div>
 									<?php
 
 									$con = connect();
-									$sql = "SELECT * FROM specialty   ORDER BY nombrees ASC LIMIT 5";
+									$sql = "SELECT * FROM departamentos ORDER BY nombre_departamento";
 									$query  = $con->query($sql);
 									$data =  array();
 									if ($query) {
@@ -405,8 +406,8 @@ if (!isset($_SESSION['cargo']) == 1) {
 												<div class="item-list">
 
 													<div class="info-user ml-3">
-														<div class="username"><?php echo $d->nombrees; ?></div>
-														<div class="status">Especialidades</div>
+														<div class="username"><?php echo $d->nombre_departamento; ?></div>
+														<div class="status">Ingeniería</div>
 													</div>
 
 												</div>
