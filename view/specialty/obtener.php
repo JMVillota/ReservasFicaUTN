@@ -6,11 +6,11 @@
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$codespe = $_GET['codespe'];
-			$nombrees = $_POST['nombrees'];
+			$id = $_GET['departamento_id'];
+			$nombre = $_POST['nombre_departamento'];
 			
 
-			$sql = "UPDATE specialty SET nombrees = '$nombrees' WHERE codespe = '$codespe'";
+			$sql = "UPDATE departamentos SET nombre_departamento = '$nombre' WHERE departamento_id = '$id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Área actualizado correctamente' : 'No se puso actualizar el área';
 

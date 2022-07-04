@@ -7,9 +7,9 @@ if(isset($_POST['agregar'])){
 	$db = $database->open();
 	try{
 		
-		$stmt = $db->prepare("INSERT INTO appointment (dates, hour,codpaci,coddoc,codespe,estado) VALUES (:dates, :hour, :codpaci, :coddoc, :codespe,:estado)");
+		$stmt = $db->prepare("INSERT INTO detalle_reservaciones (fecha_inicio, fecha_fin,tipo_evento_id,descripcion_evento,departamento_id,apellido_responsable, nombre_responsable,estado_reservacion,estado_evento,lugar_evento_id) VALUES (:fecha_inicio, :fecha_fin, :tipo_evento_id, :descripcion_evento, :departamento_id,:apellido_responsable, :nombre_responsable, :1, :1, :lugar_evento_id )");
 		//instrucción if-else en la ejecución de nuestra declaración preparada
-		$_SESSION['message'] = ( $stmt->execute(array(':dates' => $_POST['dates'] , ':hour' => $_POST['hour'] , ':codpaci' => $_POST['codpaci'], ':coddoc' => $_POST['coddoc'], ':codespe' => $_POST['codespe'], ':estado' => $_POST['estado'])) ) ? 'Cita guardada correctamente' : 'Algo salió mal. No se puede agregar miembro';	
+		$_SESSION['message'] = ( $stmt->execute(array(':fecha_inicio' => $_POST['fecha_inicio'] , ':fecha_fin' => $_POST['fecha_fin'] , ':tipo_evento_id' => $_POST['tipo_evento_id'], ':descripcion_evento' => $_POST['descripcion_evento'], ':departamento_id' => $_POST['departamento_id'], ':apellido_responsable' => $_POST['apellido_responsable'],':nombre_responsable' => $_POST['nombre_responsable'],':estado_reservacion' => $_POST[1],':estado_evento' => $_POST[1],':lugar_evento_id' => $_POST['lugar_evento_id'],)) ) ? 'Cita guardada correctamente' : 'Algo salió mal. No se puede agregar miembro';	
 	
 	}
 	catch(PDOException $e){

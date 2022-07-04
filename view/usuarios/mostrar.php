@@ -15,7 +15,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Usuarios</title>
+	<title>Administradores</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
 
@@ -51,9 +51,9 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
 
-				<a href="../view/admin/admin.php" class="logo">
+				<!-- <a href="../view/admin/admin.php" class="logo">
 					<img src="../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
-				</a>
+				</a> -->
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
 						<i class="icon-menu"></i>
@@ -286,12 +286,11 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			</div>
 		</div>
 		<!-- End Sidebar -->
-
 		<div class="main-panel">
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Usuarios</h4>
+						<h4 class="page-title">Administradores</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="../view/admin/admin.php">
@@ -301,8 +300,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 							<li class="separator">
 								<i class="flaticon-right-arrow"></i>
 							</li>
-
-
 							<li class="nav-item">
 								<a href="#">Mostrar</a>
 							</li>

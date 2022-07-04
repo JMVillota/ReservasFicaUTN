@@ -36,7 +36,7 @@ $this->SetFont('Arial','B',13);
 // Move to the right
 $this->Cell(80);
 // Title
-$this->Cell(95,10,'Lista de las especialidades',1,0,'C');
+$this->Cell(95,10,'Lista de Facultades',1,0,'C');
 // Line break
 $this->Ln(20);
 }

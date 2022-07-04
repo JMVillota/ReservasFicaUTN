@@ -6,14 +6,14 @@
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$codpaci  = $_GET['codpaci'];
-			$dnipa = $_POST['dnipa'];
-			$nombrep = $_POST['nombrep'];
-			$apellidop = $_POST['apellidop'];
-			$seguro = $_POST['seguro'];
-			$tele = $_POST['tele'];
-			$sexo = $_POST['sexo'];
-			$usuario = $_POST['usuario'];
+			$id  = $_GET['reservaciones_id'];
+			$fechaInicio = $_POST['fecha_inicio'];
+			$fechaFin = $_POST['fecha_fin'];
+			$tipoEvento = $_POST['tipo_evento_id'];
+			$descripcionEvento = $_POST['descripcion_evento'];
+			$departamento = $_POST['departamento_id'];
+			$responsable = $_POST['apellido_responbsable'];
+			$usuario = $_POST['nombre_responsable'];
 			$password = $_POST['password'];
 			$estado = $_POST['estado'];
 			

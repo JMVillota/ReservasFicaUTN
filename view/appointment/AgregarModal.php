@@ -1,88 +1,87 @@
 <!-- Agregar Nuevos Registros -->
 <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-	
-        <div class="modal-content">
-            <div class="modal-header">
-               
-                <center><h4 class="modal-title" id="myModalLabel">Nuevo Registro</h4></center>
-            </div>
-            <div class="modal-body">
-			<div class="container-fluid">
-			
-                <div class="card-body">
+	<div class="modal-dialog">
+
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<center>
+					<h4 class="modal-title" id="myModalLabel">Nueva Reservación</h4>
+				</center>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+
+					<div class="card-body">
 						<form method="POST" autocomplete="off" enctype="multipart/form-data">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group form-group-default">
-								<label>Fecha</label>
-								<input name="dates" type="date" class="form-control" required  placeholder="Ingrese fecha">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="form-group form-group-default">
+										<label>Fecha Inicio</label>
+										<input name="fecha_inicio" type="datetime-local" class="form-control" required placeholder="Ingrese fecha">
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="form-group form-group-default">
+										<label>Fecha Fin</label>
+										<input name="fecha_fin" type="datetime-local" class="form-control" required placeholder="Ingrese fecha">
+									</div>
+								</div>
+								<!-- ----------------------------------------------->
+								<div class="col-md-6">
+									<div class="form-group form-group-default">
+										<label>Tipo de Evento</label>
+										<select class="form-control" id="tipo_evento_id" required name="tipo_evento_id">
+										</select>
+									</div>
+								</div>
+								<!-- ----------------------------------------------->
+								<div class="col-md-6 pr-0">
+									<div class="form-group form-group-default">
+										<label>Descripción Evento</label>
+										<input name="descripcion_evento" type="text" class="form-control" required placeholder="Ingrese Descripción">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group form-group-default">
+										<label>Facultad</label>
+										<select class="form-control" id="continentes" required name="">
+										</select>
+									</div>
+								</div>
+								<!------------------------------------------------->
+								<div class="col-md-6 pr-0">
+									<div class="form-group form-group-default">
+										<label>Apellido Responsable</label>
+										<input name="apellido_responbable" type="text" class="form-control" required placeholder="Ingrese Apellido">
+									</div>
+								</div>
+								<!-- ----------------------------------------------->
+								<div class="col-md-6 pr-0">
+									<div class="form-group form-group-default">
+										<label>Nombre Respombable</label>
+										<input name="nombre_responsable" type="text" class="form-control" required placeholder="Ingrese Nombre">
+									</div>
+								</div>
+								<div class="col-md-6">
+								<div class="form-group form-group-default">
+										<label>Lugar Eventos</label>
+										<select class="form-control" id="lugares" required name="departamento_id">
+										</select>
+									</div>
+								</div>
 							</div>
-						</div>
-						
-						<div class="col-md-6 pr-0">
-							<div class="form-group form-group-default">
-								<label>Hora</label>
-								<input name="hour" type="time" class="form-control" required placeholder="Ingrese la hora">
-							</div>
-						</div>
-						<!-- ---------------------------------------------->
-						
-					
-						<!-- ----------------------------------------------->
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Paciente</label>
-								<select class="form-control" id="paciente" required name="codpaci">
-								
-				
-								</select>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Especialidad</label>
-								<select class="form-control" id="continentes"  required name="codespe">
-								
-				
-								</select>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Médico</label>
-								<select class="form-control" id="paises" required name="coddoc">
-								
-								</select>
-							</div>
-						</div>
-
-						
-						
 					</div>
-			
-            </div>
-
-        </div>
-		 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar
-				
-				
-				</button>
-                <button type="submit" name="agregar" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Registro</button>
-				
-				
-				
-			</form>
-                </div>
-			
-            </div>
-
-        </div>
-		
-    </div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar
+					</button>
+					<button type="submit" name="agregar" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar Registro</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </div>
 <!-- -->
