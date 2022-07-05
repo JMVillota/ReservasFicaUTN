@@ -45,7 +45,7 @@
 								<div class="col-md-6">
 									<div class="form-group form-group-default">
 										<label>Facultad</label>
-										<select class="form-control" id="continentes" required name="">
+										<select class="form-control" id="continentes" required name="departamento_id">
 										</select>
 									</div>
 								</div>
