@@ -17,7 +17,7 @@
 													 
 													<form  method="POST" action="../view/specialty/obtener.php?departamento_id=<?php echo $row['departamento_id']; ?>">
 															 	
-													<input class="form-control" name="departamento_id"   type="hidden" value="<?php echo $row->departamento_id; ?>">
+													
 														<div class="row">
 															<div class="col-sm-12">
 																<div class="form-group form-group-default">
