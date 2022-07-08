@@ -381,16 +381,16 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 												$database = new Connection();
 												$db = $database->open();
 												try {
-													$sql = 'SELECT * FROM detalle_reservaciones';
+													$sql = 'SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id';
 													foreach ($db->query($sql) as $va) {
 												?>
 															<tr>
 																<td><?php echo $va['reservacion_id']; ?></td>
-																<td><?php echo $va['fecha_inicio']; ?></td>
+																<td><?php echo $va['fecha_inicio'] ?></td>
 																<td><?php echo $va['fecha_fin']; ?></td>
-																<td><?php echo $va['tipo_evento_id']; ?></td>
+																<td><?php echo $va['nombre_evento']; ?></td>
 																<td><?php echo $va['descripcion_evento']; ?></td>
-																<td><?php echo $va['departamento_id']; ?></td>
+																<td><?php echo $va['nombre_departamento']; ?></td>
 																<td><?php echo $va['apellidos_responsable']; ?></td>
 																<td><?php echo $va['nombres_responsable']; ?></td>
 																<td>
@@ -400,7 +400,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																			<span class="text-success pl-3">Atendido</span>
 																		</form>
 																	<?php  } else { ?>
-
 																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
 																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
 																		</form>
@@ -419,7 +418,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																		</form>
 																	<?php  } ?>
 																</td>
-																<td><?php echo $va['lugar_evento_id']; ?></td>
+																<td><?php echo $va['nombre_lugar']; ?></td>
 
 																
 
