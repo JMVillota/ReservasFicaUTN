@@ -8,7 +8,7 @@
 		try{
 			$sql = "DELETE FROM departamentos WHERE departamento_id = '".$_GET['departamento_id']."'";
 			//if-else statement in executing our query
-			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Área Borrada' : 'Hubo un error al borrar el área';
+			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Departamento Borrado' : 'Hubo un error al borrar el área';
 		}
 		catch(PDOException $e){
 			$_SESSION['message'] = $e->getMessage();
@@ -19,7 +19,7 @@
 
 	}
 	else{
-		$_SESSION['message'] = 'Seleccionar miembro para eliminar primero';
+		$_SESSION['message'] = 'Seleccionar departamento para eliminar primero';
 	}
 
 	header('location: ../../folder/specialty.php');
