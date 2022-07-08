@@ -6,13 +6,13 @@
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$id  = $_GET['id'];
-			$nombre=$_POST['nombre'];
-			$usuario=$_POST['usuario'];
-			$email=$_POST['email'];
-			$cargo=$_POST['cargo'];
+			$Id  = $_GET['Id'];
+			$nombre=$_POST['Nombre'];
+			$apellido=$_POST['Apellido'];
+			$usuario=$_POST['Usuario'];
+			$correo=$_POST['Correo'];
 			
-			$sql = "UPDATE usuarios SET nombre = '$nombre',usuario = '$usuario',email = '$email',cargo = '$cargo' WHERE id = '$id'";
+			$sql = "UPDATE usuarios SET Nombre = '$nombre', Apellido = '$apellido',Usuario = '$usuario',Correo = '$correo' WHERE Id = '$Id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Usuarios actualizado correctamente' : 'No se puso actualizar el usuario';
 
