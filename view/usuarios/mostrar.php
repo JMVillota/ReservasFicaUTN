@@ -259,7 +259,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/appointment.php">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
+								<p>Reservaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -490,29 +490,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 
 			});
 		});
-	</script>
-	<script>
-		function activo(codpaci) {
-			var id = codpaci;
-			$.ajax({
-				type: "GET",
-				url: "../assets/ajax/editar_estado_activo_customers.php?id=" + id,
-			}).done(function(data) {
-				window.location.href = '../folder/customers.php';
-			})
-
-		}
-
-		// Editar estado inactivo
-		function inactivo(codpaci) {
-			var id = codpaci;
-			$.ajax({
-				type: "GET",
-				url: "../assets/ajax/editar_estado_inactivo_customers.php?id=" + id,
-			}).done(function(data) {
-				window.location.href = '../folder/customers.php';
-			})
-		}
 	</script>
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

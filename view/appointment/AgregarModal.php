@@ -31,7 +31,7 @@
 								<div class="col-md-6">
 									<div class="form-group form-group-default">
 										<label>Tipo de Evento</label>
-										<select class="form-control" id="tipo_evento_id" required name="tipo_evento_id">
+										<select class="form-control" id="EventoTipo" required name="tipo_evento_id">
 										</select>
 									</div>
 								</div>
@@ -45,7 +45,7 @@
 								<div class="col-md-6">
 									<div class="form-group form-group-default">
 										<label>Facultad</label>
-										<select class="form-control" id="continentes" required name="departamento_id">
+										<select class="form-control" id="Carreras" required name="departamento_id">
 										</select>
 									</div>
 								</div>
@@ -53,20 +53,20 @@
 								<div class="col-md-6 pr-0">
 									<div class="form-group form-group-default">
 										<label>Apellido Responsable</label>
-										<input name="apellido_responbable" type="text" class="form-control" required placeholder="Ingrese Apellido">
+										<input name="apellidos_responsable" type="text" class="form-control" required placeholder="Ingrese Apellido">
 									</div>
 								</div>
 								<!-- ----------------------------------------------->
 								<div class="col-md-6 pr-0">
 									<div class="form-group form-group-default">
 										<label>Nombre Respombable</label>
-										<input name="nombre_responsable" type="text" class="form-control" required placeholder="Ingrese Nombre">
+										<input name="nombres_responsable" type="text" class="form-control" required placeholder="Ingrese Nombre">
 									</div>
 								</div>
 								<div class="col-md-6">
-								<div class="form-group form-group-default">
+									<div class="form-group form-group-default">
 										<label>Lugar Eventos</label>
-										<select class="form-control" id="lugares" required name="departamento_id">
+										<select class="form-control" id="Lugares" required name="lugar_evento_id">
 										</select>
 									</div>
 								</div>

@@ -10,7 +10,7 @@ if(isset($_POST['agregar'])){
 		$stmt = $db->prepare("INSERT INTO usuarios (Nombre, Apellido , Usuario, Cargo, Correo, Clave) 
 		VALUES (:Nombre, :Apellido, :Usuario, :Cargo, :Correo,:Clave,:email)");
 		//instrucción if-else en la ejecución de nuestra declaración preparada
-		$_SESSION['message'] = ( $stmt->execute(array(':Nombre' => $_POST['Nombre'] , ':Apellido' => $_POST['Apellido'] , ':Usuario' => $_POST['Usuario'], ':Cargo' => $_POST['Cargo'], ':Correo' => $_POST['Correo'], ':Clave' => $_POST['Clave'] ) ? 'Administrador guardado correctamente' : 'Algo salió mal. No se puede agregar miembro';	
+		$_SESSION['message'] = ( $stmt->execute(array(':Nombre' => $_POST['Nombre'] , ':Apellido' => $_POST['Apellido'] , ':Usuario' => $_POST['Usuario'], ':Cargo' => $_POST['Cargo'], ':Correo' => $_POST['Correo'], ':Clave' => $_POST['Clave'] ))) ? 'Administrador guardado correctamente' : 'Algo salió mal. No se puede agregar miembro';	
 	
 	}
 	catch(PDOException $e){

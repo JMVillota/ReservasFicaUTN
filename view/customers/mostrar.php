@@ -259,7 +259,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/appointment.php">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
+								<p>Reservaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">

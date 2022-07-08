@@ -20,7 +20,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Citas</title>
+	<title>Reservaciones</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../assets/img/icon.ico" type="image/x-icon" />
 
@@ -264,7 +264,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/appointment.php">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
+								<p>Reservaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -296,7 +296,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Citas</h4>
+						<h4 class="page-title">Reservaciones</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="../view/admin/admin.php">
@@ -371,25 +371,28 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>Lugar Evento</th>
 													</tr>
 												</tfoot>
+												
 
+											<tbody>
+												<?php
+												//incluimos el fichero de conexion
+												include_once('../view/config/dbconect.php');
 
-												<tbody>
-													<?php
-													foreach ($dato as $key => $value) {
-														foreach ($value as $va) { ?>
+												$database = new Connection();
+												$db = $database->open();
+												try {
+													$sql = 'SELECT * FROM detalle_reservaciones';
+													foreach ($db->query($sql) as $va) {
+												?>
 															<tr>
 																<td><?php echo $va['reservacion_id']; ?></td>
 																<td><?php echo $va['fecha_inicio']; ?></td>
 																<td><?php echo $va['fecha_fin']; ?></td>
 																<td><?php echo $va['tipo_evento_id']; ?></td>
 																<td><?php echo $va['descripcion_evento']; ?></td>
-																<td><?php echo $va['apellido_responsable']; ?></td>
-																<td><?php echo $va['nombre_responsable']; ?></td>
-																<td><?php echo $va['estado_reservacion']; ?></td>
-																<td><?php echo $va['estado_evento']; ?></td>
-																<td><?php echo $va['lugar_evento_id']; ?></td>
-
-
+																<td><?php echo $va['departamento_id']; ?></td>
+																<td><?php echo $va['apellidos_responsable']; ?></td>
+																<td><?php echo $va['nombres_responsable']; ?></td>
 																<td>
 																	<?php if ($va['estado_reservacion'] == 1) { ?>
 																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
@@ -403,7 +406,22 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																		</form>
 																	<?php  } ?>
 																</td>
+																<td>
+																	<?php if ($va['estado_evento'] == 1) { ?>
+																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
 
+																			<span class="text-success pl-3">Atendido</span>
+																		</form>
+																	<?php  } else { ?>
+
+																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
+																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
+																		</form>
+																	<?php  } ?>
+																</td>
+																<td><?php echo $va['lugar_evento_id']; ?></td>
+
+																
 
 																<td>
 																	<div class="form-button-action">
@@ -419,15 +437,20 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 
 																<?php include('editar.php'); ?>
 
+																
+
 															</tr>
-													<?php
-														}
+												<?php
 													}
-													?>
-												</tbody>
+												} catch (PDOException $e) {
+													echo "Hubo un problema en la conexión: " . $e->getMessage();
+												}
 
+												//Cerrar la Conexion
+												$database->close();
 
-
+												?>
+											</tbody>
 											</table>
 										</div>
 
@@ -450,6 +473,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="../assets/js/functions4.js"></script>
 	<script src="../assets/js/functions5.js"></script>
+	<script src="../assets/js/functions6.js"></script>
 	<script src="../assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="../assets/js/core/popper.min.js"></script>
 	<script src="../assets/js/core/bootstrap.min.js"></script>
@@ -556,14 +580,18 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
-		$dates = $_POST['dates'];
-		$hour = $_POST['hour'];
-		$codpaci = $_POST['codpaci'];
-		$coddoc = $_POST['coddoc'];
-		$codespe = $_POST['codespe'];
+
+		$FechaI = $_POST['fecha_inicio'];
+		$FechaF = $_POST['fecha_fin'];
+		$Evento = $_POST['tipo_evento_id'];
+		$Descripcion = $_POST['descripcion_evento'];
+		$Departamento = $_POST['departamento_id'];
+		$Apellido = $_POST['apellidos_responsable'];
+		$Nombre = $_POST['nombres_responsable'];
+		$Lugar = $_POST['lugar_evento_id'];
 
 		// Realizamos la consulta para saber si coincide con uno de esos criterios
-		$sql = "select * from appointment where reservacion_id='$reservacion_id'";
+		$sql = "select * from detalle_reservaciones where reservacion_id='$Id'";
 		$result = mysqli_query($conn, $sql);
 	?>
 
@@ -589,7 +617,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			}
 		} else {
 			// Si no hay resultados, ingresamos el registro a la base de datos
-			$sql2 = "INSERT INTO appointment(dates,hour,codpaci,coddoc,codespe,estado)VALUES ('$dates','$hour','$codpaci','$coddoc','$codespe','0')";
+			$sql2 = "INSERT INTO detalle_reservaciones(fecha_inicio,fecha_fin,tipo_evento_id,descripcion_evento,departamento_id,apellidos_responsable,nombres_responsable,estado_reservacion,estado_evento,lugar_evento_id)VALUES ('$FechaI','$FechaF','$Evento','$Descripcion','$Departamento','$Apellido','$Nombre','0','0','$Lugar')";
 
 
 			if (mysqli_query($conn, $sql2)) {

@@ -208,7 +208,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 						<li class="nav-item">
 							<a href="../../folder/appointment.php">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
+								<p>Reservaciones</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -282,7 +282,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 											<h6 class="fw-bold mt-3 mb-0">Reservaciones</h6>
 											<?php
 											require_once "../config/conexion1.php";
-											$sql = "SELECT COUNT(*) total FROM appointment";
+											$sql = "SELECT COUNT(*) total FROM detalle_reservaciones";
 											$result = $bd->query($sql); //$pdo sería el objeto conexión
 											$total3 = $result->fetchColumn();
 											?>
