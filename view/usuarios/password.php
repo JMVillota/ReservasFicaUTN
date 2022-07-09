@@ -6,11 +6,11 @@
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$id  = $_GET['id'];
+			$Id  = $_GET['Id'];
 			
-			$clave = MD5($_POST['clave']);
+			$Clave = MD5($_POST['Clave']);
 			
-			$sql = "UPDATE usuarios SET clave = '$clave'  WHERE id = '$id'";
+			$sql = "UPDATE usuarios SET Clave = '$Clave'  WHERE Id = '$Id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Contraseña actualizada correctamente' : 'No se puso actualizar la contraseña';
 

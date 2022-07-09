@@ -330,7 +330,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>#</th>
 														<th>Nombre Departamento</th>
 
-
 														<th style="width: 10%">Action</th>
 													</tr>
 												</thead>
@@ -338,7 +337,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 													<tr>
 													<th>#</th>
 														<th>Nombre Departamento</th>
-														<th>Action</th>
+														<th>Opciones</th>
 													</tr>
 												</tfoot>
 
@@ -363,14 +362,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 
 																		<button href="#editRowModal=<?php echo $row['departamento_id']; ?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal" title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $row['departamento_id']; ?>">
 																			<i class="fa fa-edit"></i>
-
 																		</button>
-
-																		<button href="#PassRowModal=<?php echo $row['departamento_id']; ?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal" title="" data-original-title="Pass Task" data-target="#PassRowModal<?php echo $row['departamento_id']; ?>">
-																			<i class="fa fa-key"></i>
-
-																		</button>
-
 																		<button href="#deleteRowModal=<?php echo $row['departamento_id']; ?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal" title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $row['departamento_id']; ?>">
 																			<i class="fa fa-times"></i>
 

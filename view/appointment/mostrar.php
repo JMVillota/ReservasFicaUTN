@@ -320,19 +320,23 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 								<div class="card-header">
 									<div class="d-flex align-items-center">
 										<h4 class="card-title">Mostrar</h4>
-
-										<a href="#addRowModal" class="btn btn-primary btn-round ml-auto" data-toggle="modal">Nuevo</a>
+										<a href="#addRowModal" class="btn btn-primary btn-round ml-auto" data-toggle="modal">Nueva Reservación</a>
 										<?php include('AgregarModal.php'); ?>
 									</div>
-									<div class="card-tools">
-										<a href="../view/appointment/reporte.php" class="btn btn-info btn-border btn-round btn-sm mr-2">
+									<br>
+									<div>
+										<a href="#Evento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Evento</a>
+										<a href="#LugarEvento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Lugar Evento</a>
+										<?php include('vistaEvento.php'); ?>
+										<a href="../view/appointment/reporte.php" class="btn btn-outline-info btn-sm mr-2">
 											<span class="btn-label">
 												<i class="fa fa-pencil"></i>
 											</span>
-											Export
+											Exportar Datos
 										</a>
-
 									</div>
+
+
 									<div class="card-body">
 
 
@@ -371,19 +375,19 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>Lugar Evento</th>
 													</tr>
 												</tfoot>
-												
 
-											<tbody>
-												<?php
-												//incluimos el fichero de conexion
-												include_once('../view/config/dbconect.php');
 
-												$database = new Connection();
-												$db = $database->open();
-												try {
-													$sql = 'SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id';
-													foreach ($db->query($sql) as $va) {
-												?>
+												<tbody>
+													<?php
+													//incluimos el fichero de conexion
+													include_once('../view/config/dbconect.php');
+
+													$database = new Connection();
+													$db = $database->open();
+													try {
+														$sql = 'SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id';
+														foreach ($db->query($sql) as $va) {
+													?>
 															<tr>
 																<td><?php echo $va['reservacion_id']; ?></td>
 																<td><?php echo $va['fecha_inicio'] ?></td>
@@ -420,7 +424,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																</td>
 																<td><?php echo $va['nombre_lugar']; ?></td>
 
-																
+
 
 																<td>
 																	<div class="form-button-action">
@@ -436,20 +440,20 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 
 																<?php include('editar.php'); ?>
 
-																
+
 
 															</tr>
-												<?php
+													<?php
+														}
+													} catch (PDOException $e) {
+														echo "Hubo un problema en la conexión: " . $e->getMessage();
 													}
-												} catch (PDOException $e) {
-													echo "Hubo un problema en la conexión: " . $e->getMessage();
-												}
 
-												//Cerrar la Conexion
-												$database->close();
+													//Cerrar la Conexion
+													$database->close();
 
-												?>
-											</tbody>
+													?>
+												</tbody>
 											</table>
 										</div>
 

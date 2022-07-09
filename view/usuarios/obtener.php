@@ -11,8 +11,9 @@
 			$apellido=$_POST['Apellido'];
 			$usuario=$_POST['Usuario'];
 			$correo=$_POST['Correo'];
+			$Clave= $_POST['Clave'];
 			
-			$sql = "UPDATE usuarios SET Nombre = '$nombre', Apellido = '$apellido',Usuario = '$usuario',Correo = '$correo' WHERE Id = '$Id'";
+			$sql = "UPDATE usuarios SET Nombre = '$nombre', Apellido = '$apellido',Usuario = '$usuario',Correo = '$correo', Clave = '$Clave' WHERE Id = '$Id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Usuarios actualizado correctamente' : 'No se puso actualizar el usuario';
 
