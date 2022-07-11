@@ -39,28 +39,11 @@ if (isset($_POST['login'])) {
           $_SESSION['Clave'] = $data['Clave'];
           $_SESSION['Cargo_Id'] = $data['Cargo_Id'];
 
-          // $_SESSION['Id'] = $data['Id'];
-          // $_SESSION['Nombre'] = $data['Nombre'];
-          // $_SESSION['Apellido'] = $data['Apellido'];
-          // $_SESSION['Correo'] = $data['Correo'];
-          // $_SESSION['Usuario'] = $data['Usuario'];
-          // $_SESSION['Clave'] = $data['Clave'];
-          // $_SESSION['Tipo_Usuario_Id'] = $data['Tipo_Usuario_Id'];
-
-
            if ($_SESSION['Cargo_Id'] == 1) {
              header('Location: view/admin/admin.php');
            } else if ($_SESSION['Cargo_Id'] == 2) {
              header('Location: view/user/user.php');
            }
-
-          // if ($_SESSION['Tipo_Usuario_Id'] == 1) {
-          //   header('Location: view/admin/admin.php');
-          // } else if ($_SESSION['Tipo_Usuario_Id'] == 2) {
-          //   header('Location: view/user/user.php');
-          // }
-
-
           exit;
         } else
           $errMsg = 'Contraseña incorrecta.';

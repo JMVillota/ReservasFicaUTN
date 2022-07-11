@@ -1,34 +1,40 @@
 <?php
-  // Se prendio esta mrd :v
-  session_start();
+// Se prendio esta mrd :v
+session_start();
 
-  // Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
-  if(!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2){
-    /*
+// Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
+if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
+	/*
       Para redireccionar en php se utiliza header,
       pero al ser datos enviados por cabereza debe ejecutarse
       antes de mostrar cualquier informacion en el DOM es por eso que inserto este
       codigo antes de la estructura del html, espero haber sido claro
     */
-    header('location: ../../login.php');
-  }
-$id=$_SESSION['id'];
+	header('location: ../../login.php');
+}
+$id = $_SESSION['Id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Citas</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon"/>
+	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon" />
 
 	<!-- Fonts and icons -->
 	<script src="../../assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
-			google: {"families":["Lato:300,400,700,900"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['../../assets/css/fonts.min.css']},
+			google: {
+				"families": ["Lato:300,400,700,900"]
+			},
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"],
+				urls: ['../../assets/css/fonts.min.css']
+			},
 			active: function() {
 				sessionStorage.fonts = true;
 			}
@@ -42,13 +48,14 @@ $id=$_SESSION['id'];
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../../assets/css/demo.css">
 </head>
+
 <body>
 
 	<div class="wrapper">
 		<div class="main-header">
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
-				
+
 				<!-- <a href="../user/user.php" class="logo">
 					<img src="../../assets/img/logo.svg" alt="navbar brand" class="navbar-brand">
 				</a> -->
@@ -68,7 +75,7 @@ $id=$_SESSION['id'];
 
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-				
+
 				<div class="container-fluid">
 					<div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3">
@@ -88,7 +95,7 @@ $id=$_SESSION['id'];
 								<i class="fa fa-search"></i>
 							</a>
 						</li>
-						
+
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-bell"></i>
@@ -99,27 +106,27 @@ $id=$_SESSION['id'];
 									<div class="dropdown-title">You have 0 new notification</div>
 								</li>
 								<li>
-									
+
 								</li>
 								<li>
 									<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
-					
+
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="../../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+									<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="../../assets/img/mujer.png" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../../assets/img/Avatar.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo ucfirst($_SESSION['nombre']); ?></h4>
+												<h4><?php echo ucfirst($_SESSION['Nombre']); ?></h4>
 												<p class="text-muted">Customers</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
@@ -127,7 +134,7 @@ $id=$_SESSION['id'];
 									<li>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="#">My Profile</a>
-										
+
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item" href="../../cerrarSesion.php">Logout</a>
 									</li>
@@ -141,17 +148,17 @@ $id=$_SESSION['id'];
 		</div>
 
 		<!-- Sidebar -->
-		<div class="sidebar sidebar-style-2">			
+		<div class="sidebar sidebar-style-2">
 			<div class="sidebar-wrapper scrollbar scrollbar-inner">
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="../../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
+							<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo ucfirst($_SESSION['nombre']); ?>
+									<?php echo ucfirst($_SESSION['Nombre']); ?>
 									<span class="user-level">Customers</span>
 									<span class="caret"></span>
 								</span>
@@ -165,7 +172,7 @@ $id=$_SESSION['id'];
 											<span class="link-collapse">My Profile</span>
 										</a>
 									</li>
-									
+
 									<li>
 										<a href="../../cerrarSesion.php">
 											<span class="link-collapse">Logout</span>
@@ -178,19 +185,19 @@ $id=$_SESSION['id'];
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-						
+
 							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Home</p>
 								<span class="caret"></span>
 							</a>
-							
+
 						</li>
 						<li class="nav-section">
 							<span class="sidebar-mini-icon">
 								<i class="fa fa-ellipsis-h"></i>
 							</span>
-							
+
 						</li>
 						<li class="nav-item active">
 							<a data-toggle="collapse" href="#base">
@@ -200,14 +207,14 @@ $id=$_SESSION['id'];
 							</a>
 							<div class="collapse" id="base">
 								<ul class="nav nav-collapse">
-									
-									
+
+
 									<li>
 										<a href="mostrar.php">
 											<span class="sub-item">Mostrar</span>
 										</a>
 									</li>
-									
+
 								</ul>
 							</div>
 						</li>
@@ -232,117 +239,116 @@ $id=$_SESSION['id'];
 							<li class="separator">
 								<i class="flaticon-right-arrow"></i>
 							</li>
-							
-							
+
+
 							<li class="nav-item">
 								<a href="#">Mostrar</a>
 							</li>
 						</ul>
 					</div>
 					<div class="row">
-						
+
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
 									<h4 class="card-title">Mis citas</h4>
 								</div>
 								<div class="card-body">
-<div class="table-responsive">
-										<table id="add-row" class="display table table-striped table-hover" >
-											<thead>
-												<tr>
-													<th>#</th>
-													<th>DNI</th>
-													<th>Paciente</th>
-													<th>Fecha</th>
-													<th>Hora</th>
-													<th>Médico</th>
-													<th>Área Médica</th>
-													<th style="width: 10%">Estado</th>
-												</tr>
-											</thead>
-											<tfoot>
-												<tr>
-													<th>#</th>
-													<th>DNI</th>
-													<th>Paciente</th>
-													<th>Fecha</th>
-													<th>Hora</th>
-													<th>Médico</th>
-													<th>Área Médica</th>
-													<th>Estado</th>
-												</tr>
-											</tfoot>
-											
-											
-										<tbody>
-											<?php
+									<div class="table-responsive">
+										<table id="add-row" class="display table table-striped table-hover">
+										<thead>
+													<tr>
+														<th>#</th>
+														<th>Fecha</th>
+														<th>Evento</th>
+														<th>Descripción</th>
+														<th>Facultad</th>
+														<th>Apellido Responsable</th>
+														<th>Nombre Responsable</th>
+														<th>Lugar Evento</th>
 
-if (isset($_SESSION['id'])) {
-	
-	include "../config/conex.php";
 
-	$sql = "SELECT appointment.codcit, appointment.dates, appointment.hour, customers.codpaci, 
-						customers.dnipa, customers.nombrep, customers.apellidop, doctor.coddoc, doctor.dnidoc, doctor.nomdoc, 
-						doctor.apedoc, specialty.codespe, specialty.nombrees, appointment.estado FROM appointment INNER JOIN customers ON 
-						appointment.codpaci=customers.codpaci INNER JOIN doctor ON appointment.coddoc=doctor.coddoc INNER JOIN specialty ON 
-						appointment.codespe=specialty.codespe WHERE customers.codpaci='$id'";
+														<th style="width: 2%">Action</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th>#</th>
+														<th>Fecha</th>
+														<th>Evento</th>
+														<th>Descripción</th>
+														<th>Facultad</th>
+														<th>Apellido Responsable</th>
+														<th>Nombre Responsable</th>
+														<th>Lugar Evento</th>
+													</tr>
+												</tfoot>
 
-	$query = mysqli_query($conex, $sql);
-?>
 
- <?php
-			if (mysqli_num_rows($query) > 0) {
-				while ($row = mysqli_fetch_assoc($query)) {
-			?>
-			<td><?php echo $row['codcit']; ?></td>
-			<td><?php echo $row['dnipa']; ?></td>
-			<td><?php echo $row['nombrep']; ?> &nbsp;<?php echo $row['apellidop']; ?></td>
+											<tbody>
+												<?php
 
-			<td><?php echo $row['dates']; ?></td>
-			<td><?php echo $row['hour']; ?></td>
-			
-			<td><?php echo $row['nombrees']; ?>&nbsp;<?php echo $row['apedoc']; ?></td>
-			<td><?php echo $row['nombrees']; ?></td>
-			<td>
-						 <?php    if($row['estado']==1)  { ?> 
-						  <form  method="get" action="javascript:activo('<?php echo $row['codcit']; ?>')">
-							<span class="badge badge-success">Atendido</span>
+												if (isset($_SESSION['Id'])) {
 
-						  </form>
-						<?php  }   else {?> 
+													include "../config/conex.php";
 
-						  <form  method="get" action="javascript:inactivo('<?php echo $row['codcit']; ?>')"> 
-							
-							<span class="badge badge-danger">Pendiente</span>
-						  </form>
-						<?php  } ?>                         
-					</td>
-<?php
-				}
-			} else {
-				?>
-				
-				<div class="message">
-					
-					<p class="alert alert-warning">No cuenta con ninguna cita</p>
-				</div>
-			<?php
-			}
-			?>
-			
-	<?php
-} else {
-	header('location:mostrar.php');
-}
-?>
-					
-										</tbody>
-																							
-											
+													$sql = 'SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id';
+
+													$query = mysqli_query($conex, $sql);
+												?>
+
+													<?php
+													if (mysqli_num_rows($query) > 0) {
+														while ($row = mysqli_fetch_assoc($query)) {
+													?>
+															<td><?php echo $row['reservacion_id']; ?></td>
+															<td><?php echo $row['fecha_fin']; ?> &nbsp;<?php echo $row['fecha_fin']; ?></td>
+															<td><?php echo $row['nombre_evento']; ?></td>
+															<td><?php echo $row['descripcion']; ?></td>
+															<td><?php echo $row['nombres_responsables']; ?></td>
+															
+
+															<td><?php echo $row['apellidos_responsables']; ?>&nbsp;<?php echo $row['apedoc']; ?></td>
+															<td><?php echo $row['Nombrees']; ?></td>
+															<td>
+																<?php if ($row['estado'] == 1) { ?>
+																	<form method="get" action="javascript:activo('<?php echo $row['codcit']; ?>')">
+																		<span class="badge badge-success">Atendido</span>
+
+																	</form>
+																<?php  } else { ?>
+
+																	<form method="get" action="javascript:inactivo('<?php echo $row['codcit']; ?>')">
+
+																		<span class="badge badge-danger">Pendiente</span>
+																	</form>
+																<?php  } ?>
+															</td>
+														<?php
+														}
+													} else {
+														?>
+
+														<div class="message">
+
+															<p class="alert alert-warning">No cuenta con ninguna cita</p>
+														</div>
+													<?php
+													}
+													?>
+
+												<?php
+												} else {
+													header('location:mostrar.php');
+												}
+												?>
+
+											</tbody>
+
+
 										</table>
 									</div>
-									
+
 
 
 								</div>
@@ -352,33 +358,34 @@ if (isset($_SESSION['id'])) {
 
 
 
-					</div>
-					
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
-	<!--   Core JS Files   -->
-	
-	<script src="../../assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="../../assets/js/core/popper.min.js"></script>
-	<script src="../../assets/js/core/bootstrap.min.js"></script>
-	<!-- jQuery UI -->
-	<script src="../../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="../../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-	
-	<!-- jQuery Scrollbar -->
-	<script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-	<!-- Datatables -->
-	<script src="../../assets/js/plugin/datatables/datatables.min.js"></script>
-	<!-- Atlantis JS -->
-	<script src="../../assets/js/atlantis.min.js"></script>
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="../../assets/js/setting-demo2.js"></script>
+						</div>
 
-	
-	 
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<!--   Core JS Files   -->
+
+		<script src="../../assets/js/core/jquery.3.2.1.min.js"></script>
+		<script src="../../assets/js/core/popper.min.js"></script>
+		<script src="../../assets/js/core/bootstrap.min.js"></script>
+		<!-- jQuery UI -->
+		<script src="../../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+		<script src="../../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+		<!-- jQuery Scrollbar -->
+		<script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+		<!-- Datatables -->
+		<script src="../../assets/js/plugin/datatables/datatables.min.js"></script>
+		<!-- Atlantis JS -->
+		<script src="../../assets/js/atlantis.min.js"></script>
+		<!-- Atlantis DEMO methods, don't include it in your project! -->
+		<script src="../../assets/js/setting-demo2.js"></script>
+
+
+
 </body>
+
 </html>
