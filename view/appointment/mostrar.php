@@ -1,5 +1,4 @@
 <?php
-// Se prendio esta mrd :v
 session_start();
 
 // Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
@@ -18,7 +17,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 <html lang="en">
 
 <head>
-
+	<script src="../assets/js/functions4.js"></script>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Reservaciones</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -44,8 +43,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../assets/css/atlantis.min.css">
-
-	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../assets/css/demo.css">
 </head>
 
@@ -326,8 +323,9 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 									<br>
 									<div>
 										<a href="#Evento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Evento</a>
-										<a href="#LugarEvento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Lugar Evento</a>
 										<?php include('vistaEvento.php'); ?>
+										<a href="#LugarEvento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Lugar Evento</a>
+										<?php include('lugarEvento.php'); ?>
 										<a href="../view/appointment/reporte.php" class="btn btn-outline-info btn-sm mr-2">
 											<span class="btn-label">
 												<i class="fa fa-pencil"></i>
@@ -400,7 +398,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																<td>
 																	<?php if ($va['estado_reservacion'] == 1) { ?>
 																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
-
 																			<span class="text-success pl-3">Atendido</span>
 																		</form>
 																	<?php  } else { ?>
@@ -412,65 +409,46 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																<td>
 																	<?php if ($va['estado_evento'] == 1) { ?>
 																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
-
 																			<span class="text-success pl-3">Atendido</span>
 																		</form>
 																	<?php  } else { ?>
-
 																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
 																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
 																		</form>
 																	<?php  } ?>
 																</td>
 																<td><?php echo $va['nombre_lugar']; ?></td>
-
-
-
 																<td>
 																	<div class="form-button-action">
-
-
+																		<button href="#editRowModal=<?php echo $va['reservacion_id']; ?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal" title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $va['reservacion_id']; ?>">
+																			<i class="fa fa-edit"></i>
+																		</button>
 																		<button href="#deleteRowModal=<?php echo $va['reservacion_id']; ?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal" title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $va['reservacion_id']; ?>">
 																			<i class="fa fa-trash"></i>
-
 																		</button>
-
 																	</div>
 																</td>
-
 																<?php include('editar.php'); ?>
-
-
-
 															</tr>
 													<?php
 														}
 													} catch (PDOException $e) {
 														echo "Hubo un problema en la conexión: " . $e->getMessage();
 													}
-
 													//Cerrar la Conexion
 													$database->close();
-
 													?>
 												</tbody>
 											</table>
 										</div>
-
-
 									</div>
 								</div>
-
-
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
-
 	</div>
 	<!--   Core JS Files   -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -549,9 +527,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			}).done(function(data) {
 				window.location.href = '../folder/appointment.php';
 			})
-
 		}
-
 		// Editar estado inactivo
 		function inactivo(reservacion_id) {
 			var id = reservacion_id;
@@ -603,25 +579,20 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 		// Validamos si hay resultados
 		if (mysqli_num_rows($result) > 0) {
 			// Si es mayor a cero imprimimos que ya existe el usuario
-
 			if ($result) {
 		?>
-
 				<script type="text/javascript">
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Ya existe el registro a agregar!'
-
 					})
 				</script>
-
 				<?php
 			}
 		} else {
 			// Si no hay resultados, ingresamos el registro a la base de datos
 			$sql2 = "INSERT INTO detalle_reservaciones(fecha_inicio,fecha_fin,tipo_evento_id,descripcion_evento,departamento_id,apellidos_responsable,nombres_responsable,estado_reservacion,estado_evento,lugar_evento_id)VALUES ('$FechaI','$FechaF','$Evento','$Descripcion','$Departamento','$Apellido','$Nombre','0','0','$Lugar')";
-
 
 			if (mysqli_query($conn, $sql2)) {
 

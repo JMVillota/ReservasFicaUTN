@@ -107,20 +107,28 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 							</ul>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
+							
+						<?php
+									require_once "../config/conexion1.php";
+									$sql = "SELECT COUNT(*) total FROM detalle_reservaciones";
+									$result = $bd->query($sql); //$pdo sería el objeto conexión
+									$total4 = $result->fetchColumn();
+									?>
 							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-bell"></i>
-								<span class="notification">0</span>
+
+								<span class="notification"><?php echo  $total4; ?></span>
 							</a>
 							<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
 								<li>
-									<div class="dropdown-title">You have 0 new notification</div>
+									<div class="dropdown-title">Tu tienes <?php echo  $total4; ?> Nuevas Recervaciones</div>
 								</li>
 								<li>
 
 
 								</li>
 								<li>
-									<a class="see-all" href="javascript:void(0);">See all notifications<i class="fa fa-angle-right"></i> </a>
+									<a class="see-all" href="../../folder/appointment.php">Ver todas las reservaciones<i class="fa fa-angle-right"></i> </a>
 								</li>
 							</ul>
 						</li>
@@ -138,7 +146,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 
 											<div class="avatar-lg"><img src="../../assets/img/avatar.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo nl2br(ucfirst($_SESSION['Apellido'])."\r\n".ucfirst($_SESSION['Nombre'])); ?></h4>
+												<h4><?php echo nl2br(ucfirst($_SESSION['Apellido']) . "\r\n" . ucfirst($_SESSION['Nombre'])); ?></h4>
 												<p class="text-muted">Administrador</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
 											</div>
 										</div>
@@ -170,8 +178,8 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo nl2br(ucfirst($_SESSION['Apellido'])."\r\n".ucfirst($_SESSION['Nombre'])); ?>
-									
+									<?php echo nl2br(ucfirst($_SESSION['Apellido']) . "\r\n" . ucfirst($_SESSION['Nombre'])); ?>
+
 									<span class="user-level">Administrador</span>
 									<span class="caret"></span>
 								</span>
@@ -519,6 +527,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 			styleWrapper: true,
 			styleText: true
 		})
+
 
 		var totalIncomeChart = document.getElementById('totalIncomeChart').getContext('2d');
 

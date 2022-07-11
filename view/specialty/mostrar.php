@@ -358,16 +358,12 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																<td><?php echo $row['nombre_departamento']; ?></td>
 																<td>
 																	<div class="form-button-action">
-
-
 																		<button href="#editRowModal=<?php echo $row['departamento_id']; ?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal" title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $row['departamento_id']; ?>">
 																			<i class="fa fa-edit"></i>
 																		</button>
 																		<button href="#deleteRowModal=<?php echo $row['departamento_id']; ?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal" title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $row['departamento_id']; ?>">
 																			<i class="fa fa-times"></i>
-
 																		</button>
-
 																		<?php include('editar.php'); ?>
 																	</div>
 																</td>
@@ -469,53 +465,38 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 		$username = "uobaba3u7tzwepfv";
 		$password = "VnpoDdEI73A3gZL3GaUd";
 		$dbname = "bmfmhv5m3p9lyxmjs6du";
-
 		// Creamos la conexión
 		$conn = new mysqli($servername, $username, $password, $dbname);
-
 		// Revisamos la conexión
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
 		$nombreD = $_POST['nombre_departamento'];
-
-
-
 		// Realizamos la consulta para saber si coincide con uno de esos criterios
 		$sql = "select * from departamentos where nombre_departamento='$nombreD'";
 		$result = mysqli_query($conn, $sql);
 	?>
-
-
 		<?php
 		// Validamos si hay resultados
 		if (mysqli_num_rows($result) > 0) {
 			// Si es mayor a cero imprimimos que ya existe el usuario
-
 			if ($result) {
 		?>
-
 				<script type="text/javascript">
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
 						text: 'Ya existe el registro a agregar!'
-
 					})
 				</script>
-
 				<?php
 			}
 		} else {
 			// Si no hay resultados, ingresamos el registro a la base de datos
 			$sql2 = "INSERT INTO departamentos(nombre_departamento)VALUES ('$nombreD')";
-
-
 			if (mysqli_query($conn, $sql2)) {
-
 				if ($sql2) {
 				?>
-
 					<script type="text/javascript">
 						Swal.fire({
 							position: 'top-end',
@@ -527,7 +508,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 							window.location = "../folder/specialty.php";
 						});
 					</script>
-
 				<?php
 				} else {
 				?>
@@ -540,7 +520,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						})
 					</script>
 	<?php
-
 				}
 			} else {
 
@@ -552,5 +531,4 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 	}
 	?>
 </body>
-
 </html>
