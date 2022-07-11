@@ -6,16 +6,13 @@
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$codpaci  = $_GET['codpaci'];
-			$dnipa = $_POST['dnipa'];
-			$nombrep = $_POST['nombrep'];
-			$apellidop = $_POST['apellidop'];
-			$seguro = $_POST['seguro'];
-			$tele = $_POST['tele'];
-			$sexo = $_POST['sexo'];
-			$usuario = $_POST['usuario'];
+			$Id  = $_GET['Id'];
+			$Nombre = $_POST['Nombre'];
+			$Apellido = $_POST['Apellido'];
+			$Usuario = $_POST['Usuario'];
+			$Correo = $_POST['Correo'];
 			
-			$sql = "UPDATE customers SET dnipa = '$dnipa',nombrep = '$nombrep',apellidop = '$apellidop',seguro = '$seguro',tele = '$tele',sexo = '$sexo' ,usuario = '$usuario' WHERE codpaci = '$codpaci'";
+			$sql = "UPDATE usuarios SET Nombre = '$Nombre',Apellido = '$Apellido',Usuario = '$Usuario',Correo = '$Correo' WHERE Id = '$Id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Paciente actualizado correctamente' : 'No se puso actualizar el paciente';
 

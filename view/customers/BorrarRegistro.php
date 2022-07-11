@@ -2,11 +2,11 @@
 	session_start();
 	include_once('../config/dbconect.php');
 
-	if(isset($_GET['codpaci'])){
+	if(isset($_GET['Id'])){
 		$database = new Connection();
 		$db = $database->open();
 		try{
-			$sql = "DELETE FROM customers WHERE codpaci  = '".$_GET['codpaci']."'";
+			$sql = "DELETE FROM usuarios WHERE Id  = '".$_GET['Id']."'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Área Borrada' : 'Hubo un error al borrar el área';
 		}

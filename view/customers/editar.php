@@ -1,5 +1,5 @@
 	<!-- Modal-edit -->
-<div class="modal fade" id="editRowModal<?php echo $row['codpaci']; ?>"  aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="editRowModal<?php echo $row['Id']; ?>"  aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header no-bd">
@@ -15,15 +15,16 @@
 			<div class="modal-body">
 		
 				 
-				<form  method="POST" action="../view/customers/obtener.php?codpaci=<?php echo $row['codpaci']; ?>">
+				<form  method="POST" action="../view/customers/obtener.php?Id=<?php echo $row['Id']; ?>">
 							
-				<input class="form-control" name="codpaci" type="hidden" value="<?php echo $row->codpaci; ?>">
+				<input class="form-control" name="Id" type="hidden" value="<?php echo $row->Id; ?>">
 					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group form-group-default">
-								<label>DNI</label>
 						
-						<input type="text" maxlength="8" class="form-control" name="dnipa" value="<?php echo $row['dnipa']; ?>">
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Apellidos</label>
+						
+						<input type="text" class="form-control" name="Apellido" value="<?php echo $row['Nombre']; ?>">
 							</div>
 						</div>
 						
@@ -31,50 +32,7 @@
 							<div class="form-group form-group-default">
 								<label>Nombres</label>
 						
-						<input type="text" class="form-control" name="nombrep" value="<?php echo $row['nombrep']; ?>">
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Apellidos</label>
-						
-						<input type="text" class="form-control" name="apellidop" value="<?php echo $row['apellidop']; ?>">
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Seguro</label>
-						
-						
-						<select class="form-control" name="seguro" value="<?php echo $row['seguro'];?>" >
-						<option value="Si">Si</option>
-						<option value="No">No</option>
-						</select>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default">
-								<label>Teléfono</label>
-						
-						<input type="text" class="form-control" name="tele" value="<?php echo $row['tele']; ?>">
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="form-group form-group-default" >
-								<label>Sexo</label>
-						
-						
-						
-						<select class="form-control" name="sexo" value="<?php echo $row['sexo'];?>" >
-						<option value="Masculino">Masculino</option>
-						<option value="Femenino">Femenino</option>
-						</select>
-						
-						
+						<input type="text" class="form-control" name="Nombre" value="<?php echo $row['Apellido']; ?>">
 							</div>
 						</div>
 						
@@ -82,7 +40,15 @@
 							<div class="form-group form-group-default">
 								<label>Usuario</label>
 						
-						<input type="text" class="form-control" name="usuario" value="<?php echo $row['usuario']; ?>">
+						<input type="text" class="form-control" name="Usuario" value="<?php echo $row['Usuario']; ?>">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group form-group-default">
+								<label>Correo</label>
+						
+						<input type="text" class="form-control" name="Correo" value="<?php echo $row['Correo']; ?>">
 							</div>
 						</div>
 						
@@ -102,7 +68,7 @@
 									
 									
 <!-- Delete -->
-<div class="modal fade" id="deleteRowModal<?php echo $row['codpaci']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteRowModal<?php echo $row['Id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -111,11 +77,11 @@
             </div>
             <div class="modal-body">	
             	<p class="text-center">¿Esta seguro de borrar el registro?</p>
-				<h2 class="text-center"><?php echo $row['nombrep']; ?></h2>
+				<h2 class="text-center"><?php echo $row['Nombre']; ?></h2>
 			</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                <a href="../view/customers/BorrarRegistro.php?codpaci=<?php echo $row['codpaci']; ?>" class="btn btn-danger"><span class="fa fa-times"></span> Eliminar</a>
+                <a href="../view/customers/BorrarRegistro.php?Id=<?php echo $row['Id']; ?>" class="btn btn-danger"><span class="fa fa-times"></span> Eliminar</a>
             </div>
 
         </div>
@@ -123,7 +89,7 @@
 </div>	
 									
 			<!-- Password-->	
-<div class="modal fade" id="PassRowModal<?php echo $row['codpaci']; ?>"  aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="PassRowModal<?php echo $row['Id']; ?>"  aria-labelledby="myModalLabel" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header no-bd">
@@ -139,9 +105,9 @@
 			<div class="modal-body">
 		
 				 
-				<form  method="POST" action="../view/customers/password.php?codpaci=<?php echo $row['codpaci']; ?>">
+				<form  method="POST" action="../view/customers/password.php?Id=<?php echo $row['Id']; ?>">
 							
-				<input class="form-control" name="codpaci" type="hidden" value="<?php echo $row->codpaci; ?>">
+				<input class="form-control" name="Id" type="hidden" value="<?php echo $row->Id; ?>">
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group form-group-default">
