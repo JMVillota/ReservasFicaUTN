@@ -134,7 +134,7 @@ if (isset($_POST['login'])) {
         </div>
 
 
-        <button class="btn" name='login' type="submit"> Iniciar sesion
+        <button class="btn btn-success" name='login' type="success"> Iniciar sesion
         </button>
 
       </form>
