@@ -330,7 +330,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																<td>
 																	<?php if ($va['estado_reservacion'] == 1) { ?>
 																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
-																			<span class="text-success pl-3">Atendido</span>
+																			<button type="submit" class="btn btn-success btn-xs">Aceptado</button>
 																		</form>
 																	<?php  } else { ?>
 																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
@@ -340,11 +340,11 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																</td>
 																<td>
 																	<?php if ($va['estado_evento'] == 1) { ?>
-																		<form method="get" action="javascript:activo('<?php echo $va['reservacion_id']; ?>')">
-																			<span class="text-success pl-3">Atendido</span>
+																		<form method="get" action="javascript:activo_evento('<?php echo $va['reservacion_id']; ?>')">
+																		<button type="submit" class="btn btn-success btn-xs">Cumplido</button>
 																		</form>
 																	<?php  } else { ?>
-																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
+																		<form method="get" action="javascript:inactivo_evento('<?php echo $va['reservacion_id']; ?>')">
 																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
 																		</form>
 																	<?php  } ?>
@@ -466,6 +466,27 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 			$.ajax({
 				type: "GET",
 				url: "../assets/ajax/editar_estado_inactivo_cita.php?id=" + id,
+			}).done(function(data) {
+				window.location.href = '../folder/appointment.php';
+			})
+		}
+
+		// Estado evento
+		function activo_evento(reservacion_id) {
+			var id = reservacion_id;
+			$.ajax({
+				type: "GET",
+				url: "../assets/ajax/editar_estado_activo_evento.php?id=" + id,
+			}).done(function(data) {
+				window.location.href = '../folder/appointment.php';
+			})
+		}
+		// Editar estado inactivo
+		function inactivo_evento(reservacion_id) {
+			var id = reservacion_id;
+			$.ajax({
+				type: "GET",
+				url: "../assets/ajax/editar_estado_inactivo_evento.php?id=" + id,
 			}).done(function(data) {
 				window.location.href = '../folder/appointment.php';
 			})

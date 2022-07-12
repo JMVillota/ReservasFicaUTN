@@ -2,7 +2,7 @@
 <?php
 $id = $_GET['id'];
 if ((isset($_GET['id'])) && ($_GET['id'] != "")) {
-$deleteSQL = sprintf("UPDATE detalle_reservaciones SET estado_reservacion='1' WHERE reservacion_id=$id ");
+$deleteSQL = sprintf("UPDATE detalle_reservaciones SET estado_evento='1' WHERE reservacion_id=$id ");
   $Result1 = mysqli_query( $conex, $deleteSQL) or die(mysqli_error($conex));
 if($Result1==true)
 {
