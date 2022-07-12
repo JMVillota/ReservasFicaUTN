@@ -10,7 +10,7 @@
 			
 			$Clave = MD5($_POST['Clave']);
 			
-			$sql = "UPDATE customers SET Clave = '$Clave'  WHERE Id = '$Id'";
+			$sql = "UPDATE usuarios SET Clave = '$Clave'  WHERE Id = '$Id'";
 			//if-else statement in executing our query
 			$_SESSION['message'] = ( $db->exec($sql) ) ? 'Contraseña actualizada correctamente' : 'No se puso actualizar la contraseña';
 
