@@ -88,44 +88,19 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 							</a>
 						</li>
 						<li class="nav-item dropdown hidden-caret">
-							<a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-envelope"></i>
-							</a>
-							<ul class="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
-								<li>
-									<div class="dropdown-title d-flex justify-content-between align-items-center">
-										Messages
-										<a href="#" class="small">Mark all as read</a>
-									</div>
-								</li>
-								<li>
-
-								</li>
-								<li>
-									<a class="see-all" href="javascript:void(0);">See all messages<i class="fa fa-angle-right"></i> </a>
-								</li>
-							</ul>
-						</li>
-						<li class="nav-item dropdown hidden-caret">
-							
-						<?php
-									require_once "../config/conexion1.php";
-									$sql = "SELECT COUNT(*) total FROM detalle_reservaciones";
-									$result = $bd->query($sql); //$pdo sería el objeto conexión
-									$total4 = $result->fetchColumn();
-									?>
+							<?php
+							require_once "../config/conexion1.php";
+							$sql = "SELECT COUNT(*) total FROM detalle_reservaciones";
+							$result = $bd->query($sql); //$pdo sería el objeto conexión
+							$total4 = $result->fetchColumn();
+							?>
 							<a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="fa fa-bell"></i>
-
 								<span class="notification"><?php echo  $total4; ?></span>
 							</a>
 							<ul class="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
 								<li>
 									<div class="dropdown-title">Tu tienes <?php echo  $total4; ?> Nuevas Recervaciones</div>
-								</li>
-								<li>
-
-
 								</li>
 								<li>
 									<a class="see-all" href="../../folder/appointment.php">Ver todas las reservaciones<i class="fa fa-angle-right"></i> </a>
