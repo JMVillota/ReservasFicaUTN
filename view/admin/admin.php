@@ -197,7 +197,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 						<li class="nav-item">
 							<a href="../../folder/customers.php">
 								<i class="fas fa-male"></i>
-								<p>Secretarias</p>
+								<p>Usuarios</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -209,7 +209,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 						<li class="nav-item">
 							<a href="../../folder/usuarios.php">
 								<i class="fas fa-user"></i>
-								<p>Usuarios</p>
+								<p>Administrador</p>
 							</a>
 						</li>
 
@@ -307,7 +307,7 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 														<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
 													</div>
 													<div class="info-user ml-3">
-														<div class="username"><?php echo $d->Apellido; ?></div>
+														<div class="username"><?php echo $d->Apellido . "\r\n" . $d->Nombre; ?></div>
 														<div class="status">Administrador</div>
 													</div>
 
@@ -346,10 +346,10 @@ if (!isset($_SESSION['Cargo_Id']) == 1) {
 
 												<div class="item-list">
 													<div class="avatar">
-														<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
+														<img src="../../assets/img/mujer.png" alt="..." class="avatar-img rounded-circle">
 													</div>
 													<div class="info-user ml-3">
-														<div class="username"><?php echo $d->Apellido; ?></div>
+														<div class="username"><?php echo $d->Apellido . "\r\n" . $d->Nombre; ?></div>
 														<div class="status">Secretaria</div>
 													</div>
 

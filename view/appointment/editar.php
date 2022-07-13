@@ -35,7 +35,7 @@
 								</div>
 								<div class="col-md-6">
 									<div class="form-group form-group-default">
-										<label>Facultad</label>
+										<label>Carrera</label>
 										<select class="form-control" id="Carreras" required name="departamento_id">
 										</select>
 									</div>
@@ -87,7 +87,7 @@
 					</center>
 				</div>
 				<div class="modal-body">
-					<p class="text-center">¿Esta seguro de borrar está cita?</p>
+					<p class="text-center">¿Esta seguro de borrar está reservación?</p>
 					<h2 class="text-center"><?php echo $va['dates']; ?></h2>
 				</div>
 				<div class="modal-footer">
