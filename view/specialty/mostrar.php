@@ -195,7 +195,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/customers.php">
 								<i class="fas fa-male"></i>
-								<p>Secretarias</p>
+								<p>Usuarios</p>
 							</a>
 						</li>
 						<li class="nav-item active">
@@ -207,7 +207,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/usuarios.php">
 								<i class="fas fa-user"></i>
-								<p>Usuarios</p>
+								<p>Administrador</p>
 							</a>
 						</li>
 
@@ -258,7 +258,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 												<thead>
 													<tr>
 														<th>#</th>
-														<th>Nombre Departamento</th>
+														<th>Nombre Carrera</th>
 
 														<th style="width: 10%">Action</th>
 													</tr>
@@ -266,7 +266,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 												<tfoot>
 													<tr>
 													<th>#</th>
-														<th>Nombre Departamento</th>
+														<th>Nombre Carrera</th>
 														<th>Opciones</th>
 													</tr>
 												</tfoot>

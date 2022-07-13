@@ -185,7 +185,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item">
-							<a href="#dashboard" class="collapsed" aria-expanded="false">
+							<a href="../view/admin/admin.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Home</p>
 							</a>
@@ -199,7 +199,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/customers.php">
 								<i class="fas fa-male"></i>
-								<p>Secretarias</p>
+								<p>Usuarios</p>
 							</a>
 						</li>
 						<li class="nav-item">
@@ -211,7 +211,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 						<li class="nav-item">
 							<a href="../../folder/usuarios.php">
 								<i class="fas fa-user"></i>
-								<p>Usuarios</p>
+								<p>Administrador</p>
 							</a>
 						</li>
 
@@ -254,9 +254,9 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 									</div>
 									<br>
 									<div>
-										<a href="#Evento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Evento</a>
+										<a href="#Evento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Nuevo Tipo Evento</a>
 										<?php include('vistaEvento.php'); ?>
-										<a href="#LugarEvento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Lugar Evento</a>
+										<a href="#LugarEvento" class="btn btn-outline-dark btn-sm mr-2" data-toggle="modal">Nuevo Lugar Evento</a>
 										<?php include('lugarEvento.php'); ?>
 										<a href="../view/appointment/reporte.php" class="btn btn-outline-info btn-sm mr-2">
 											<span class="btn-label">
@@ -277,16 +277,14 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>#</th>
 														<th>Fecha Inicio</th>
 														<th>Fecha Fin</th>
-														<th>Evento</th>
+														<th>Tipo Evento</th>
 														<th>Descripción</th>
-														<th>Facultad</th>
+														<th>Carrera</th>
 														<th>Apellido Responsable</th>
 														<th>Nombre Responsable</th>
 														<th>Estado Reservación</th>
 														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
-
-
 														<th style="width: 2%">Action</th>
 													</tr>
 												</thead>
@@ -295,14 +293,15 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>#</th>
 														<th>Fecha Inicio</th>
 														<th>Fecha Fin</th>
-														<th>Evento</th>
+														<th>Tipo Evento</th>
 														<th>Descripción</th>
-														<th>Facultad</th>
+														<th>Carrera</th>
 														<th>Apellido Responsable</th>
 														<th>Nombre Responsable</th>
 														<th>Estado Reservación</th>
 														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
+														<th style="width: 2%">Action</th>
 													</tr>
 												</tfoot>
 
@@ -334,18 +333,18 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																		</form>
 																	<?php  } else { ?>
 																		<form method="get" action="javascript:inactivo('<?php echo $va['reservacion_id']; ?>')">
-																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
+																			<button type="submit" class="btn btn-warning btn-xs">Pendiente</button>
 																		</form>
 																	<?php  } ?>
 																</td>
 																<td>
 																	<?php if ($va['estado_evento'] == 1) { ?>
 																		<form method="get" action="javascript:activo_evento('<?php echo $va['reservacion_id']; ?>')">
-																		<button type="submit" class="btn btn-success btn-xs">Cumplido</button>
+																		<button type="submit" class="btn btn-success btn-xs">Realizado</button>
 																		</form>
 																	<?php  } else { ?>
 																		<form method="get" action="javascript:inactivo_evento('<?php echo $va['reservacion_id']; ?>')">
-																			<button type="submit" class="btn btn-danger btn-xs">Pendiente</button>
+																			<button type="submit" class="btn btn-danger btn-xs">No realizado</button>
 																		</form>
 																	<?php  } ?>
 																</td>
