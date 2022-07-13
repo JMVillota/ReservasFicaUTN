@@ -1,15 +1,7 @@
 <?php
-// Se prendio esta mrd :v
 session_start();
-
-// Validamos que exista una session y ademas que el cargo que exista sea igual a 1 (Administrador)
 if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
-	/*
-      Para redireccionar en php se utiliza header,
-      pero al ser datos enviados por cabereza debe ejecutarse
-      antes de mostrar cualquier informacion en el DOM es por eso que inserto este
-      codigo antes de la estructura del html, espero haber sido claro
-    */
+
 	header('location: ../../login.php');
 }
 $id = $_SESSION['Id'];
@@ -18,13 +10,10 @@ $id = $_SESSION['Id'];
 <html lang="en">
 
 <head>
-
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Citas</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon" />
-
-	<!-- Fonts and icons -->
 	<script src="../../assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -44,7 +33,6 @@ $id = $_SESSION['Id'];
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../assets/css/atlantis.min.css">
-
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="../../assets/css/demo.css">
 </head>
@@ -306,8 +294,6 @@ $id = $_SESSION['Id'];
 															<td><?php echo $row['nombre_evento']; ?></td>
 															<td><?php echo $row['descripcion']; ?></td>
 															<td><?php echo $row['nombres_responsables']; ?></td>
-															
-
 															<td><?php echo $row['apellidos_responsables']; ?>&nbsp;<?php echo $row['apedoc']; ?></td>
 															<td><?php echo $row['Nombrees']; ?></td>
 															<td>
@@ -317,9 +303,7 @@ $id = $_SESSION['Id'];
 
 																	</form>
 																<?php  } else { ?>
-
 																	<form method="get" action="javascript:inactivo('<?php echo $row['codcit']; ?>')">
-
 																		<span class="badge badge-danger">Pendiente</span>
 																	</form>
 																<?php  } ?>
@@ -328,43 +312,26 @@ $id = $_SESSION['Id'];
 														}
 													} else {
 														?>
-
 														<div class="message">
-
 															<p class="alert alert-warning">No cuenta con ninguna cita</p>
 														</div>
 													<?php
 													}
 													?>
-
 												<?php
 												} else {
 													header('location:mostrar.php');
 												}
 												?>
-
 											</tbody>
-
-
 										</table>
 									</div>
-
-
-
 								</div>
 							</div>
-
-
-
-
-
 						</div>
-
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 		<!--   Core JS Files   -->
 
@@ -374,7 +341,6 @@ $id = $_SESSION['Id'];
 		<!-- jQuery UI -->
 		<script src="../../assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 		<script src="../../assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
-
 		<!-- jQuery Scrollbar -->
 		<script src="../../assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 		<!-- Datatables -->
@@ -383,9 +349,5 @@ $id = $_SESSION['Id'];
 		<script src="../../assets/js/atlantis.min.js"></script>
 		<!-- Atlantis DEMO methods, don't include it in your project! -->
 		<script src="../../assets/js/setting-demo2.js"></script>
-
-
-
 </body>
-
 </html>
