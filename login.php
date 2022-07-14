@@ -39,11 +39,11 @@ if (isset($_POST['login'])) {
           $_SESSION['Clave'] = $data['Clave'];
           $_SESSION['Cargo_Id'] = $data['Cargo_Id'];
 
-           if ($_SESSION['Cargo_Id'] == 1) {
-             header('Location: view/admin/admin.php');
-           } else if ($_SESSION['Cargo_Id'] == 2) {
-             header('Location: view/user/user.php');
-           }
+          if ($_SESSION['Cargo_Id'] == 1) {
+            header('Location: view/admin/admin.php');
+          } else if ($_SESSION['Cargo_Id'] == 2) {
+            header('Location: view/user/user.php');
+          }
           exit;
         } else
           $errMsg = 'Contraseña incorrecta.';
@@ -74,6 +74,14 @@ if (isset($_POST['login'])) {
 
 <body>
   <!--  <img class="wave"src="../assets/img/wave.png" alt="">  -->
+  <style>
+    div.a {
+      text-align: center;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
   <div class="contenedor">
     <div class="img">
       <img src="https://pngimage.net/wp-content/uploads/2018/05/calendrier-icone-png-4.png" alt="">
@@ -81,8 +89,9 @@ if (isset($_POST['login'])) {
     <div class="contenido-login">
 
       <form autocomplete="off" method="POST" role="form">
-
-        <img src="wp-content/themes/utndigital/assets/img/UTN.png" alt="">
+        <div class="a">
+          <a class="a" href="index.html"><img src="wp-content/themes/utndigital/assets/img/UTN.png" alt=""></a>
+        </div>
         <h2>Login</h2>
         <?php
         if (isset($errMsg)) {

@@ -268,8 +268,6 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 
 
 									<div class="card-body">
-
-
 										<div class="table-responsive">
 											<table id="add-row" class="display table table-striped table-hover">
 												<thead>
@@ -285,7 +283,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>Estado Reservación</th>
 														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
-														<th style="width: 2%">Action</th>
+														<th style="width: 2%">Opciones</th>
 													</tr>
 												</thead>
 												<tfoot>
@@ -301,7 +299,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>Estado Reservación</th>
 														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
-														<th style="width: 2%">Action</th>
+														<th style="width: 2%">Opciones</th>
 													</tr>
 												</tfoot>
 
