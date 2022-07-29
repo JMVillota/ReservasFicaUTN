@@ -73,7 +73,6 @@ if (isset($_POST['login'])) {
 </head>
 
 <body>
-  <!--  <img class="wave"src="../assets/img/wave.png" alt="">  -->
   <style>
     div.a {
       text-align: center;
