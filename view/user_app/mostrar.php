@@ -7,11 +7,11 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 $id = $_SESSION['Id'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Citas</title>
+	<title>Reservaciones</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../../assets/img/icon.ico" type="image/x-icon" />
 	<script src="../../assets/js/plugin/webfont/webfont.min.js"></script>
@@ -102,17 +102,17 @@ $id = $_SESSION['Id'];
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
+									<img src="../../assets/img/Mujer.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
 								<div class="dropdown-user-scroll scrollbar-outer">
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="../../assets/img/Avatar.png" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../../assets/img/Mujer.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo ucfirst($_SESSION['Nombre']); ?></h4>
-												<p class="text-muted">Customers</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+												<h4><?php echo ucfirst($_SESSION['Apellido']) . ' ' . ucfirst($_SESSION['Nombre']); ?></h4>
+												<p class="text-muted">Usuario</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
 											</div>
 										</div>
 									</li>
@@ -138,13 +138,13 @@ $id = $_SESSION['Id'];
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
+							<img src="../../assets/img/Mujer.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo ucfirst($_SESSION['Nombre']); ?>
-									<span class="user-level">Customers</span>
+									<?php echo ucfirst($_SESSION['Apellido']) . ' ' . ucfirst($_SESSION['Nombre']); ?>
+									<span class="user-level">Usuario</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -187,7 +187,7 @@ $id = $_SESSION['Id'];
 						<li class="nav-item active">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
+								<p>Reservaciones</p>
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="base">
@@ -212,7 +212,7 @@ $id = $_SESSION['Id'];
 			<div class="content">
 				<div class="page-inner">
 					<div class="page-header">
-						<h4 class="page-title">Citas</h4>
+						<h4 class="page-title">Reservaciones</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
 								<a href="../view/admin/admin.php">
@@ -234,23 +234,26 @@ $id = $_SESSION['Id'];
 						<div class="col-md-12">
 							<div class="card">
 								<div class="card-header">
-									<h4 class="card-title">Mis citas</h4>
+									<h4 class="card-title">Mis Reservaciones</h4>
 								</div>
 								<div class="card-body">
 									<div class="table-responsive">
 										<table id="add-row" class="display table table-striped table-hover">
+										<a href="#addRowModal" class="btn btn-primary btn-round ml-auto" data-toggle="modal">Nueva Reservación</a>
+										<?php include('AgregarModal.php'); ?>
 										<thead>
 													<tr>
 														<th>#</th>
 														<th>Fecha Inicio</th>
 														<th>Fecha Fin</th>
-														<th>Evento</th>
+														<th>Tipo Evento</th>
 														<th>Descripción</th>
-														<th>Facultad</th>
+														<th>Carrera</th>
 														<th>Apellido Responsable</th>
 														<th>Nombre Responsable</th>
+														<th>Estado Reservación</th>
+														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
-														<th style="width: 2%">Opciones</tr>
 													</tr>
 												</thead>
 												<tfoot>
@@ -258,13 +261,14 @@ $id = $_SESSION['Id'];
 														<th>#</th>
 														<th>Fecha Inicio</th>
 														<th>Fecha Fin</th>
-														<th>Evento</th>
+														<th>Tipo Evento</th>
 														<th>Descripción</th>
-														<th>Facultad</th>
+														<th>Carrera</th>
 														<th>Apellido Responsable</th>
 														<th>Nombre Responsable</th>
+														<th>Estado Reservación</th>
+														<th>Estado Evento</th>
 														<th>Lugar Evento</th>
-														<th style="width: 2%">Opciones</th>
 													</tr>
 												</tfoot>
 
@@ -288,26 +292,39 @@ $id = $_SESSION['Id'];
 															
 													?>
 													<tr>
-															<td><?php echo $row['reservacion_id']; ?></td>
-															<td><?php echo $row['fecha_inicio']; ?></td>
-															<td><?php echo $row['fecha_fin']; ?></td>
-															<td><?php echo $row['nombre_evento']; ?></td>
-															<td><?php echo $row['descripcion_evento']; ?></td>
-															<td><?php echo $row['nombre_departamento']; ?></td>
-															<td><?php echo $row['apellidos_responsable']; ?></td>
-															<td><?php echo $row['nombres_responsable']; ?></td>
-															<td><?php echo $row['nombre_lugar']; ?></td>
-															<td style="width: 1%">
-																	<div class="form-button-action">
-																		<button href="#editRowModal=<?php echo $va['reservacion_id']; ?>" class="btn btn-link btn-primary btn-lg" data-toggle="modal" title="" data-original-title="Edit Task" data-target="#editRowModal<?php echo $va['reservacion_id']; ?>">
-																			<i class="fa fa-edit"></i>
-																		</button>
-																		<button href="#deleteRowModal=<?php echo $va['reservacion_id']; ?>" class="btn btn-link btn-danger btn-lg" data-toggle="modal" title="" data-original-title="Delete Task" data-target="#deleteRowModal<?php echo $va['reservacion_id']; ?>">
-																			<i class="fa fa-trash"></i>
-																		</button>
-																	</div>
+																<td><?php echo $row['reservacion_id']; ?></td>
+																<td><?php echo $row['fecha_inicio'] ?></td>
+																<td><?php echo $row['fecha_fin']; ?></td>
+																<td><?php echo $row['nombre_evento']; ?></td>
+																<td><?php echo $row['descripcion_evento']; ?></td>
+																<td><?php echo $row['nombre_departamento']; ?></td>
+																<td><?php echo $row['apellidos_responsable']; ?></td>
+																<td><?php echo $row['nombres_responsable']; ?></td>
+																<td>
+																	<?php if ($row['estado_reservacion'] == 1) { ?>
+																		<form method="get" action="javascript:activo('<?php echo $row['reservacion_id']; ?>')">
+																			<span class="btn btn-success btn-xs">Aceptado</span>
+																		</form>
+																	<?php  } else { ?>
+																		<form method="get" action="javascript:inactivo('<?php echo $row['reservacion_id']; ?>')">
+																			<span class="btn btn-warning btn-xs">Pendiente</span>
+																		</form>
+																	<?php  } ?>
 																</td>
-													</tr>
+																<td>
+																	<?php if ($row['estado_evento'] == 1) { ?>
+																		<form method="get" action="javascript:activo_evento('<?php echo $row['reservacion_id']; ?>')">
+																		<span class="btn btn-success btn-xs">Realizado</span>
+																		</form>
+																	<?php  } else { ?>
+																		<form method="get" action="javascript:inactivo_evento('<?php echo $row['reservacion_id']; ?>')">
+																			<span class="btn btn-danger btn-xs">No realizado</span>
+																		</form>
+																	<?php  } ?>
+																</td>
+																<td><?php echo $row['nombre_lugar']; ?></td>
+																
+															</tr>
 														<?php
 														}
 													} else {

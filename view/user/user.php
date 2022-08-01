@@ -120,7 +120,7 @@ $id = $_SESSION['Id'];
 						<li class="nav-item dropdown hidden-caret">
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
-									<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
+									<img src="../../assets/img/Mujer.png" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -128,10 +128,10 @@ $id = $_SESSION['Id'];
 									<li>
 										<div class="user-box">
 
-											<div class="avatar-lg"><img src="../../assets/img/Avatar.png" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="../../assets/img/Mujer.png" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo ucfirst($_SESSION['Nombre']); ?></h4>
-												<p class="text-muted">Customers</p>
+												<h4><?php echo ucfirst($_SESSION['Apellido']) . ' ' . ucfirst($_SESSION['Nombre']); ?></h4>
+												<p class="text-muted">Usuario</p>
 											</div>
 										</div>
 									</li>
@@ -157,13 +157,13 @@ $id = $_SESSION['Id'];
 				<div class="sidebar-content">
 					<div class="user">
 						<div class="avatar-sm float-left mr-2">
-							<img src="../../assets/img/Avatar.png" alt="..." class="avatar-img rounded-circle">
+							<img src="../../assets/img/Mujer.png" alt="..." class="avatar-img rounded-circle">
 						</div>
 						<div class="info">
 							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-									<?php echo ucfirst($_SESSION['Nombre']); ?>
-									<span class="user-level">Customers</span>
+									<?php echo ucfirst($_SESSION['Apellido']) . ' ' . ucfirst($_SESSION['Nombre']); ?>
+									<span class="user-level">Usuario</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -318,7 +318,7 @@ $id = $_SESSION['Id'];
 							<div class="card-header" style="background-image: url('../assets/img/blogpost.jpg')">
 								<div class="profile-picture">
 									<div class="avatar avatar-xl">
-										<img src="../../assets/img/avatar.png" alt="..." class="avatar-img rounded-circle">
+										<img src="../../assets/img/Mujer.png" alt="..." class="avatar-img rounded-circle">
 									</div>
 								</div>
 							</div>
