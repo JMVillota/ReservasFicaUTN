@@ -286,9 +286,13 @@ $id = $_SESSION['Id'];
 								<div class="card-body">
 									<div class="table-responsive">
 <<<<<<< HEAD
+<<<<<<< HEAD
 										<table id="add-row" class="display table table-striped table-hover">
 										<a href="#addRowModal" class="btn btn-primary btn-round ml-auto" data-toggle="modal">Nueva Reservación</a>
 										<?php include('AgregarModal.php'); ?>
+=======
+										<table id="add-table" class="display table table-striped table-hover">
+>>>>>>> b1bd2b280dc0b6a6e40f661d131810ca1cde3e12
 =======
 										<table id="add-table" class="display table table-striped table-hover">
 >>>>>>> b1bd2b280dc0b6a6e40f661d131810ca1cde3e12
