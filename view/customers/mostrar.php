@@ -283,6 +283,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 														<th>Usuario</th>
 														<th>Correo</th>
 														<th>Cargo</th>
+														<th style="width: 10%">Action</th>
 													</tr>
 												</tfoot>
 
