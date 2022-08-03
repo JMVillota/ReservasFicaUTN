@@ -21,7 +21,7 @@ $id = $_SESSION['Id'];
 <head>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Citas médicas</title>
+	<title>Reservaciones</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<link rel="icon" href="../../assets/img/logo.png" type="image/x-icon" />
 
@@ -188,32 +188,17 @@ $id = $_SESSION['Id'];
 						</div>
 					</div>
 					<ul class="nav nav-primary">
-						<li class="nav-item active">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+					<li class="nav-item active">
+							<a href="../view/admin/admin.php" class="collapsed" aria-expanded="false">
 								<i class="fas fa-home"></i>
 								<p>Home</p>
-								<span class="caret"></span>
 							</a>
-
 						<li class="nav-item">
-							<a data-toggle="collapse" href="#base">
+							<a href="../../folder/userapp.php">
 								<i class="fas fa-layer-group"></i>
-								<p>Citas</p>
-								<span class="caret"></span>
+								<p>Reservaciones</p>
 							</a>
-							<div class="collapse" id="base">
-								<ul class="nav nav-collapse">
-
-									<li>
-										<a href="../user_app/mostrar.php">
-											<span class="sub-item">Mostrar</span>
-										</a>
-									</li>
-
-								</ul>
-							</div>
 						</li>
-
 					</ul>
 				</div>
 			</div>

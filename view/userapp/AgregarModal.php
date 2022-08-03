@@ -59,7 +59,7 @@
 								<!-- ----------------------------------------------->
 								<div class="col-md-6 pr-0">
 									<div class="form-group form-group-default">
-										<label>Nombre Responsable</label>
+										<label>Nombre Respombable</label>
 										<input name="nombres_responsable" type="text" class="form-control" required placeholder="Ingrese Nombre">
 									</div>
 								</div>
