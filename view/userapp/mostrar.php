@@ -210,7 +210,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 						<h4 class="page-title">Reservaciones</h4>
 						<ul class="breadcrumbs">
 							<li class="nav-home">
-								<a href="../view/admin/admin.php">
+								<a href="../view/user/user.php">
 									<i class="flaticon-home"></i>
 								</a>
 							</li>
