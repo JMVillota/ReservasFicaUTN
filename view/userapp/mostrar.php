@@ -191,7 +191,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 							</a>
 						</li>
 						<li class="nav-item active">
-							<a href="../../folder/appointment.php">
+							<a href="../../folder/userapp.php">
 								<i class="fas fa-layer-group"></i>
 								<p>Reservaciones</p>
 							</a>
@@ -324,7 +324,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 																</td>
 																<td><?php echo $va['nombre_lugar']; ?></td>
 																
-																<?php include('editar.php'); ?>
+																
 															</tr>
 													<?php
 														}
@@ -483,7 +483,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 							showConfirmButton: false,
 							timer: 1500
 						}).then(function() {
-							window.location = "../folder/appointment.php";
+							window.location = "../folder/userapp.php";
 						});
 					</script>
 
