@@ -29,13 +29,10 @@
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html?rsd" />
     <meta name="generator" content="WordPress 6.0" />
     <link rel='shortlink' href='index.html' />
-    <style>
-        .recentcomments a {
-            display: inline !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-    </style>
+    <link href='assets/css/main.css' rel='stylesheet' />
+    <script src='assets/js/main.js'></script>
+    <script src='assets/js/locales-all.js'></script>
+    <script src='assets/js/sweetalert2.all.min.js'></script>
 </head>
 <div class="preloader">
     <div class="text-wrapper">
@@ -47,6 +44,7 @@
 </div>
 
 <body id="js-scroll " class="page-template-default page page-id-59 o-scroll" data-scroll-container>
+    
     <div id="page" class="site">
         <div class="main-logo">
             <a href="index.html">
@@ -84,22 +82,41 @@
                 </div>
             </div>
         </div>
-        <!-- #colophon -->
+        <div class="section about-parallax" data-scroll-section>
+                    <div class="container-wrapper container-width-4 vartical-padding-1 two-side-padding-mobile vartical-padding-top-mobile-3">
+                        <div class="container-fluid gx-0">
+                            <div class="row gx-0">
+
+                                <div class="col-12 m-only">
+                                <div id='calendar'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale:"es",
+                headerToolbar:{
+                    left:'prev,next today',
+                    center:'title',
+                    right:'dayGridMonth,timeGridWeek,timeGridDay'
+                }
+            });
+            calendar.render();
+        });
+    </script>
     <script src='wp-content/themes/utndigital/js/navigation8a54.js?ver=1.0.0' id='pulladigital-navigation-js'></script>
     <script src='wp-content/themes/utndigital/assets/js/jquery.min8a54.js?ver=1.0.0' id='pulladigital-jquery-js'></script>
     <script src='wp-content/themes/utndigital/assets/js/TweenMax.min8a54.js?ver=1.0.0' id='pulladigital-TweenMax-js'></script>
     <script src='wp-content/themes/utndigital/assets/js/owl.carousel.min8a54.js?ver=1.0.0' id='pulladigital-owl-carousel-js'></script>
     <script src='wp-content/themes/utndigital/assets/js/locomotive-scroll.min8a54.js?ver=1.0.0' id='locomotive-scroll-js'></script>
     <script src='wp-content/themes/utndigital/assets/js/swiper-bundle.min8a54.js?ver=1.0.0' id='swiper-js-js'></script>
-    <script id='pulladigital-main-js-extra'>
-        var javascript_object = {
-            "assets_url ": "http:\/\/pulla.digital\/wp-content\/themes\/pulladigital\/assets\/js\/ ",
-            "is_blog ": " ",
-            "is_single ": "1 "
-        };
-    </script>
     <script src='wp-content/themes/utndigital/assets/js/main8a54.js?ver=1.0.0' id='pulladigital-main-js'></script>
 </body>
 
