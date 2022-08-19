@@ -20,7 +20,7 @@ $(function() {
             right: 'dayGridMonth,dayGridWeek,list',
             center: 'title',
         },
-        selectable: true,
+        selectable: false,
         themeSystem: 'bootstrap',
         //Random default events
         events: events,

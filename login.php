@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
 <div class="preloader">
   <div class="text-wrapper">
     <div class="text-animation">
-      <div class="loader-font text page-name page-About"><span class="dot"></span> <span class="title-wrap"> <span class="title-span">Login</span> </span>
+      <div class="loader-font text page-name page-Contact"><span class="dot"></span> <span class="title-wrap"> <span class="title-span">Login</span> </span>
       </div>
     </div>
   </div>
