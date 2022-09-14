@@ -82,7 +82,7 @@ if (isset($_POST['login'])) {
   </div>
 </div>
 
-<body  id="js-scroll " class="page-template-default page page-id-59 o-scroll" data-scroll-container>
+<body id="js-scroll " class="page-template-default page page-id-59 o-scroll" data-scroll-container>
   <style>
     div.a {
       text-align: center;
@@ -106,7 +106,7 @@ if (isset($_POST['login'])) {
             </a>
           </li>
           <li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"><a href="calendario.php">Calendario<img class="image" src=wp-content/uploads/2022/04/calendario.png></a></li>
-          <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="index.html">Información<img class="image" src=wp-content/uploads/2022/03/contacto.png></a></li>
+          <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="Info.html">Información<img class="image" src=wp-content/uploads/2022/03/contacto.png></a></li>
           <li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a href="login.php">Login<img class="image" src=wp-content/uploads/2022/03/consultas.png></a></li>
         </ul>
       </div>

@@ -23,7 +23,6 @@
     <link rel='stylesheet' id='owl-default-css' href='wp-content/themes/utndigital/assets/css/owl.theme.default.min0a4b.css' />
     <link rel='stylesheet' id='locomotive-css-css' href='wp-content/themes/utndigital/assets/css/locomotive-scroll0a4b.css' />
     <link rel='stylesheet' id='style-css-css' href='wp-content/themes/utndigital/assets/css/style.min0a4b.css' />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.html" />
 
     <link rel='shortlink' href='calendario.php' />
     <style>
@@ -71,7 +70,7 @@
                         </a>
                     </li>
                     <li id="menu-item-193" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-193"><a href="calendario.php">Calendario<img class="image" src=wp-content/uploads/2022/04/calendario.png></a></li>
-                    <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="index.html">Información<img class="image" src=wp-content/uploads/2022/03/contacto.png></a></li>
+                    <li id="menu-item-671" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671"><a href="Info.html">Información<img class="image" src=wp-content/uploads/2022/03/contacto.png></a></li>
                     <li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a href="login.php">Login<img class="image" src=wp-content/uploads/2022/03/consultas.png></a></li>
                 </ul>
             </div>
@@ -173,7 +172,7 @@
                                         <a href="index.html">Inicio</a>
                                     </li>
                                     <li id="menu-item-684" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-684">
-                                        <a href="index.html">Información</a>
+                                        <a href="info.html">Información</a>
                                     </li>
                                     <li id="menu-item-672" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-672">
                                         <a href="login.php">Login</a>
@@ -185,7 +184,7 @@
                             <div class="footer-email-container">
                                 <ul id="footer-email" class="menu">
                                     <li id="menu-item-306" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-306">
-                                        <a href="mailto:jmvillotat@utn.edu.ec">jmvillotat@utn.edu.ec</a>
+                                        <a href="mailto:Example@utn.edu.ec">Example@utn.edu.ec</a>
                                     </li>
                                 </ul>
                             </div>
@@ -193,7 +192,7 @@
                         <div class="social-menu" data-scroll>
                             <div class="social-menu-container">
                                 <ul id="social-menu-footer" class="menu">
-                                        }
+                                    }
                                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-152">
                                         <a href="#">Linkedin</a>
                                     </li>
@@ -211,7 +210,7 @@
             </div>
         </div>
     </footer>
-    
+
     <?php
     $schedules = $conn->query("SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id");
     $sched_res = [];
@@ -238,16 +237,15 @@
     ?>
 
     <!-- Js personalizado -->
-    <script src='wp-content/themes/utndigital/assets/js/owl.carousel.min8a54.js' id='pulladigital-owl-carousel-js'></script>
-
-    <script src='wp-content/themes/utndigital/assets/js/locomotive-scroll.min8a54.js?ver=1.0.0' id='locomotive-scroll-js'></script>
-    <script src='wp-content/themes/utndigital/assets/js/swiper-bundle.min8a54.js?ver=1.0.0' id='swiper-js-js'></script>
-
-    <script src='wp-content/themes/utndigital/assets/js/main8a54.js?ver=1.0.0' id='pulladigital-main-js'></script>
+    <script src='wp-content/themes/utndigital/assets/js/owl.carousel.min8a54.js'></script>
+    <script src='wp-content/themes/utndigital/assets/js/locomotive-scroll.min8a54.js'></script>
+    <script src='wp-content/themes/utndigital/assets/js/swiper-bundle.min8a54.js'></script>
+    <script src='wp-content/themes/utndigital/assets/js/main8a54.js'></script>
+    <script>
+        var schedsc = $.parseJSON('<?= json_encode($sched_res) ?>')
+    </script>
+    <script src="assets/js/script.js"></script>
 </body>
-<script>
-    var scheds = $.parseJSON('<?= json_encode($sched_res) ?>')
-</script>
-<script src="assets/js/script.js"></script>
+
 
 </html>

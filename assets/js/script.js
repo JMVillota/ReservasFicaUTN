@@ -2,9 +2,9 @@ var calendar;
 var Calendar = FullCalendar.Calendar;
 var events = [];
 $(function() {
-    if (!!scheds) {
-        Object.keys(scheds).map(k => {
-            var row = scheds[k]
+    if (!!schedsc) {
+        Object.keys(schedsc).map(k => {
+            var row = schedsc[k]
             events.push({ id: row.reservacion_id, title: row.nombre_evento, start: row.fecha_inicio, end: row.fecha_fin });
         })
     }
@@ -28,27 +28,25 @@ $(function() {
 
             var _details = $('#event-details-modal')
             var id = info.event.id
-            if (!!scheds[id]) {
+            if (!!schedsc[id]) {
 
-                _details.find('#fecha_inicio').text(scheds[id].sdate)
-                _details.find('#fecha_fin').text(scheds[id].edate)
-                _details.find('#nombre_evento').text(scheds[id].nombre_evento)
-                _details.find('#descripcion_evento').text(scheds[id].descripcion_evento)
-                _details.find('#nombre_departamento').text(scheds[id].nombre_departamento)
-                _details.find('#apellidos_responsable').text(scheds[id].apellidos_responsable)
-                _details.find('#nombres_responsable').text(scheds[id].nombres_responsable)
-                _details.find('#estado_reservacion').text(scheds[id].estado_reservacion)
-                _details.find('#estado_evento').text(scheds[id].estado_evento)
-                _details.find('#nombre_lugar').text(scheds[id].nombre_lugar)
+                _details.find('#fecha_inicio').text(schedsc[id].sdate)
+                _details.find('#fecha_fin').text(schedsc[id].edate)
+                _details.find('#nombre_evento').text(schedsc[id].nombre_evento)
+                _details.find('#descripcion_evento').text(schedsc[id].descripcion_evento)
+                _details.find('#nombre_departamento').text(schedsc[id].nombre_departamento)
+                _details.find('#apellidos_responsable').text(schedsc[id].apellidos_responsable)
+                _details.find('#nombres_responsable').text(schedsc[id].nombres_responsable)
+                _details.find('#estado_reservacion').text(schedsc[id].estado_reservacion)
+                _details.find('#estado_evento').text(schedsc[id].estado_evento)
+                _details.find('#nombre_lugar').text(schedsc[id].nombre_lugar)
                     // _details.find('#edit,#delete').attr('data-id', id)
                 _details.modal('show')
             } else {
                 alert("Event is undefined");
             }
         },
-        eventDidMount: function(info) {
-            // Do Something after events mounted
-        },
+
         editable: false
     });
 
