@@ -338,7 +338,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 1) {
 																<td>
 																	<?php if ($va['estado_evento'] == 1) { ?>
 																		<form method="get" action="javascript:activo_evento('<?php echo $va['reservacion_id']; ?>')">
-																		<button type="submit" class="btn btn-success btn-xs">Realizado</button>
+																			<button type="submit" class="btn btn-success btn-xs">Realizado</button>
 																		</form>
 																	<?php  } else { ?>
 																		<form method="get" action="javascript:inactivo_evento('<?php echo $va['reservacion_id']; ?>')">
