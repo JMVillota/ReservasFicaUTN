@@ -1,4 +1,3 @@
-<?php require_once('assets/db/db-connect.php') ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -212,29 +211,62 @@
     </footer>
 
     <?php
-    $schedules = $conn->query("SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id");
-    $sched_res = [];
-    foreach ($schedules->fetch_all(MYSQLI_ASSOC) as $row) {
-        locale:
-        'es';
-        $row['sdate'] = date("M d, Y h:i A", strtotime($row['fecha_inicio']));
-        $row['edate'] = date("M d, Y h:i A", strtotime($row['fecha_fin']));
-        if ($row['estado_reservacion'] == 1) {
-            $row['estado_reservacion'] = 'Aceptado';
-        } else {
-            $row['estado_reservacion'] = 'Pendiente';
+    // $schedules = $conn->query("SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id");
+    // $sched_res = [];
+    // foreach ($schedules->fetch_all(MYSQLI_ASSOC) as $row) {
+    //     locale:
+    //     'es';
+    //     $row['sdate'] = date("M d, Y h:i A", strtotime($row['fecha_inicio']));
+    //     $row['edate'] = date("M d, Y h:i A", strtotime($row['fecha_fin']));
+    //     if ($row['estado_reservacion'] == 1) {
+    //         $row['estado_reservacion'] = 'Aceptado';
+    //     } else {
+    //         $row['estado_reservacion'] = 'Pendiente';
+    //     }
+    //     if ($row['estado_evento'] == 1) {
+    //         $row['estado_evento'] = 'Realizado';
+    //     } else {
+    //         $row['estado_evento'] = 'No Realizado';
+    //     }
+    //     $sched_res[$row['reservacion_id']] = $row;
+    // }
+
+    //incluimos el fichero de conexion
+    include_once('view/config/dbconect.php');
+
+    $database = new Connection();
+    $db = $database->open();
+    try {
+        $sql = 'SELECT dr.*, d.nombre_departamento, le.nombre_lugar, e.nombre_evento FROM detalle_reservaciones dr INNER JOIN departamentos d ON dr.departamento_id = d.departamento_id INNER JOIN eventos e ON dr.tipo_evento_id = e.evento_id INNER JOIN lugar_eventos le ON dr.lugar_evento_id = le.lugar_evento_id';
+        $sched_res = [];
+        foreach ($db->query($sql) as $row) {
+            locale:
+            'es';
+            $row['sdate'] = date("M d, Y h:i A", strtotime($row['fecha_inicio']));
+            $row['edate'] = date("M d, Y h:i A", strtotime($row['fecha_fin']));
+            if ($row['estado_reservacion'] == 1) {
+                $row['estado_reservacion'] = 'Aceptado';
+            } else {
+                $row['estado_reservacion'] = 'Pendiente';
+            }
+            if ($row['estado_evento'] == 1) {
+                $row['estado_evento'] = 'Realizado';
+            } else {
+                $row['estado_evento'] = 'No Realizado';
+            }
+            $sched_res[$row['reservacion_id']] = $row;
         }
-        if ($row['estado_evento'] == 1) {
-            $row['estado_evento'] = 'Realizado';
-        } else {
-            $row['estado_evento'] = 'No Realizado';
-        }
-        $sched_res[$row['reservacion_id']] = $row;
-    }
+
     ?>
     <?php
-    if (isset($conn)) $conn->close();
+
+    } catch (PDOException $e) {
+        echo "Hubo un problema en la conexión: " . $e->getMessage();
+    }
+    //Cerrar la Conexion
+    $database->close();
     ?>
+
 
     <!-- Js personalizado -->
     <script src='wp-content/themes/utndigital/assets/js/owl.carousel.min8a54.js'></script>

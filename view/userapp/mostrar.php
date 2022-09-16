@@ -314,7 +314,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 																<td>
 																	<?php if ($va['estado_evento'] == 1) { ?>
 																		<form method="get" action="javascript:activo_evento('<?php echo $va['reservacion_id']; ?>')">
-																		<span type="submit" class="btn btn-success btn-xs">Realizado</span>
+																			<span type="submit" class="btn btn-success btn-xs">Realizado</span>
 																		</form>
 																	<?php  } else { ?>
 																		<form method="get" action="javascript:inactivo_evento('<?php echo $va['reservacion_id']; ?>')">
@@ -323,8 +323,8 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 																	<?php  } ?>
 																</td>
 																<td><?php echo $va['nombre_lugar']; ?></td>
-																
-																
+
+
 															</tr>
 													<?php
 														}
@@ -414,7 +414,7 @@ if (!isset($_SESSION['Cargo_Id']) || $_SESSION['Cargo_Id'] != 2) {
 		});
 	</script>
 
-	
+
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
